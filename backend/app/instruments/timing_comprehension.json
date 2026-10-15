@@ -1,0 +1,65 @@
+{
+  "id": "timing_comprehension",
+  "name": "Intervention-timing comprehension check (H4)",
+  "citation": "AgentPause project (2026). Ad-hoc comprehension items; NOT validated.",
+  "doi": null,
+  "source_url": null,
+  "license": "MIT (items written for this project)",
+  "redistributable": true,
+  "validated": false,
+  "construct": "understanding of intervention timing",
+  "when": "final",
+  "scale": {
+    "type": "choice"
+  },
+  "items": [
+    {
+      "id": "defer_deadline",
+      "text": "When AgentPause postpones a question, what is the latest moment it will ask?",
+      "options": [
+        "Before the first step that cannot be undone and depends on the answer",
+        "At the very end of the task",
+        "Whenever the agent finishes the current sub-task",
+        "It may never ask"
+      ],
+      "correct": "Before the first step that cannot be undone and depends on the answer"
+    },
+    {
+      "id": "why_not_earlier",
+      "text": "Why might AgentPause not ask a question as soon as the agent becomes unsure?",
+      "options": [
+        "Interrupting mid-task costs more, and a better moment may come before anything irreversible happens",
+        "AgentPause ignores uncertainty",
+        "The agent hides its uncertainty",
+        "Questions are always asked at the start"
+      ],
+      "correct": "Interrupting mid-task costs more, and a better moment may come before anything irreversible happens"
+    },
+    {
+      "id": "low_risk",
+      "text": "An action is easy to undo and the agent is confident. What would AgentPause most likely do?",
+      "options": [
+        "Continue without asking",
+        "Ask for confirmation",
+        "Block the action",
+        "Ask a clarifying question"
+      ],
+      "correct": "Continue without asking"
+    },
+    {
+      "id": "goal_questions",
+      "text": "Which kind of question does AgentPause NOT postpone?",
+      "options": [
+        "Questions about your goals or constraints",
+        "Questions about details needed later",
+        "Approval of an action that runs later",
+        "None — it postpones everything"
+      ],
+      "correct": "Questions about your goals or constraints"
+    }
+  ],
+  "scoring": {
+    "method": "correct"
+  },
+  "notes": "Example items. Adapt them to your explanation conditions and pre-register."
+}

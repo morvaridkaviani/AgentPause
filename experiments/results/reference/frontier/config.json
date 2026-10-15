@@ -1,0 +1,276 @@
+{
+  "name": "frontier",
+  "description": "Sweeps of interruption cost (adaptive, myopic) and thresholds (fixed, confidence).",
+  "policies": [
+    {
+      "name": "full_autonomy",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "always_confirm",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "rule_based",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.005
+      },
+      "ablate": [],
+      "label": "adaptive@0.005"
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.01
+      },
+      "ablate": [],
+      "label": "adaptive@0.01"
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.015
+      },
+      "ablate": [],
+      "label": "adaptive@0.015"
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.02
+      },
+      "ablate": [],
+      "label": "adaptive@0.02"
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.03
+      },
+      "ablate": [],
+      "label": "adaptive@0.03"
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.05
+      },
+      "ablate": [],
+      "label": "adaptive@0.05"
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.08
+      },
+      "ablate": [],
+      "label": "adaptive@0.08"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.005
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.005"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.01
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.01"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.015
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.015"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.02
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.02"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.03
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.03"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.05
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.05"
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {
+        "interruption_cost": 0.08
+      },
+      "ablate": [],
+      "label": "myopic_voi@0.08"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.1
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.10"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.15
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.15"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.25
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.25"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.35
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.35"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.5
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.50"
+    },
+    {
+      "name": "confidence_threshold",
+      "config": {
+        "threshold": 0.7
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "confidence_threshold@0.70"
+    },
+    {
+      "name": "confidence_threshold",
+      "config": {
+        "threshold": 0.8
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "confidence_threshold@0.80"
+    },
+    {
+      "name": "confidence_threshold",
+      "config": {
+        "threshold": 0.85
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "confidence_threshold@0.85"
+    },
+    {
+      "name": "confidence_threshold",
+      "config": {
+        "threshold": 0.9
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "confidence_threshold@0.90"
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 150,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 0
+}

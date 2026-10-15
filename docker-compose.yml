@@ -1,0 +1,47 @@
+# AgentPause: backend (FastAPI) + frontend (Next.js). All agent actions are simulated.
+#   docker compose up --build        -> http://localhost:3100 (app), http://localhost:8000/docs (API)
+# Use PostgreSQL instead of SQLite:
+#   docker compose --profile postgres up --build   (and set DATABASE_URL, see .env.example)
+services:
+  backend:
+    build: { context: ., target: backend }
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/agentpause.db}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3100}
+      AGENTPAUSE_ADMIN_TOKEN: ${AGENTPAUSE_ADMIN_TOKEN:-}
+      AGENTPAUSE_ENV: ${AGENTPAUSE_ENV:-production}
+      MAX_EXPERIMENT_EPISODES: ${MAX_EXPERIMENT_EPISODES:-20000}
+      # Licensed questionnaire items that are not bundled (see docs/experiments.md):
+      # INSTRUMENTS_LOCAL_DIR: /instruments
+    volumes:
+      - agentpause-data:/data
+      # - ./instruments-local:/instruments:ro
+    ports: ["8000:8000"]
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+      args:
+        BACKEND_URL: http://backend:8000
+        NEXT_PUBLIC_REPO_URL: ${NEXT_PUBLIC_REPO_URL:-https://github.com/morvaridkaviani/AgentPause}
+    depends_on:
+      backend: { condition: service_healthy }
+    ports: ["3100:3000"]  # host port 3100 → container port 3000
+    restart: unless-stopped
+
+  postgres:
+    profiles: [postgres]
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: agentpause
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agentpause-dev-only}
+      POSTGRES_DB: agentpause
+    volumes:
+      - agentpause-pg:/var/lib/postgresql/data
+    ports: ["5432:5432"]
+
+volumes:
+  agentpause-data:
+  agentpause-pg:

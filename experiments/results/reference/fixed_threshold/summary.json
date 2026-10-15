@@ -1,0 +1,1494 @@
+{
+  "config": {
+    "name": "fixed_threshold",
+    "description": "risk = severity \u00d7 irreversibility \u2265 \u03c4, for several \u03c4.",
+    "policies": [
+      {
+        "name": "fixed_threshold",
+        "config": {
+          "threshold": 0.15
+        },
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": "fixed_threshold@0.15"
+      },
+      {
+        "name": "fixed_threshold",
+        "config": {
+          "threshold": 0.25
+        },
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": "fixed_threshold@0.25"
+      },
+      {
+        "name": "fixed_threshold",
+        "config": {
+          "threshold": 0.35
+        },
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": "fixed_threshold@0.35"
+      },
+      {
+        "name": "fixed_threshold",
+        "config": {
+          "threshold": 0.5
+        },
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": "fixed_threshold@0.50"
+      },
+      {
+        "name": "fixed_threshold",
+        "config": {
+          "threshold": 0.65
+        },
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": "fixed_threshold@0.65"
+      }
+    ],
+    "scenarios": [
+      "all"
+    ],
+    "episodes": 200,
+    "seed": 314159,
+    "conditions": [
+      {
+        "name": "default",
+        "user": {},
+        "engine": {},
+        "parameters": {}
+      }
+    ],
+    "explain": "none",
+    "keep_records": true,
+    "bootstrap": 500
+  },
+  "aggregates": [
+    {
+      "condition": "default",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 1200,
+      "task_success": 0.73,
+      "task_success_ci": [
+        0.7041666666666667,
+        0.7541666666666667
+      ],
+      "task_duration_s": 73.703525,
+      "task_duration_s_ci": [
+        72.32024833333332,
+        75.10570750000001
+      ],
+      "interventions": 1.6408333333333334,
+      "interventions_ci": [
+        1.6016666666666666,
+        1.68
+      ],
+      "questions": 4.3075,
+      "questions_ci": [
+        4.2225,
+        4.3925
+      ],
+      "deferrals": 0.0,
+      "deferrals_ci": [
+        0.0,
+        0.0
+      ],
+      "unnecessary_rate": 0.5124428643981717,
+      "unnecessary_rate_ci": [
+        0.48841996911991764,
+        0.5329949238578681
+      ],
+      "missed_rate": 0.22060016220600162,
+      "missed_rate_ci": [
+        0.1971153846153846,
+        0.24471544715447155
+      ],
+      "recovery_rate": 0.6950527169505272,
+      "recovery_rate_ci": [
+        0.6711783439490446,
+        0.71875
+      ],
+      "harm": 0.04907947916666667,
+      "harm_ci": [
+        0.041087375,
+        0.057189854166666665
+      ],
+      "human_miss_rate": 0.10355648535564854,
+      "human_miss_rate_ci": [
+        0.083710407239819,
+        0.12655601659751037
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.07110208227526663,
+      "human_error_rate_ci": [
+        0.05897435897435897,
+        0.08383838383838384
+      ],
+      "override_rate": 0.21990858303707467,
+      "override_rate_ci": [
+        0.2045918367346939,
+        0.2351447435246318
+      ],
+      "acceptance_rate": 0.5302183849669884,
+      "acceptance_rate_ci": [
+        0.5084140744518103,
+        0.550253807106599
+      ],
+      "rework_steps": 0.9391666666666667,
+      "rework_steps_ci": [
+        0.8691666666666666,
+        1.0083333333333333
+      ],
+      "decision_latency_ms": 0.011799583333333334,
+      "decision_latency_ms_ci": [
+        0.010730166666666667,
+        0.013275416666666666
+      ],
+      "human_time_s": 29.168525000000002,
+      "human_time_s_ci": [
+        28.053424166666662,
+        30.384779166666668
+      ],
+      "workload_proxy": 4.0125416666666665,
+      "workload_proxy_ci": [
+        3.930979166666667,
+        4.095020833333334
+      ]
+    },
+    {
+      "condition": "default",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 1200,
+      "task_success": 0.69,
+      "task_success_ci": [
+        0.6633333333333333,
+        0.7158333333333333
+      ],
+      "task_duration_s": 70.29837083333334,
+      "task_duration_s_ci": [
+        68.7702775,
+        71.85672666666666
+      ],
+      "interventions": 1.36,
+      "interventions_ci": [
+        1.3325,
+        1.3875
+      ],
+      "questions": 3.6933333333333334,
+      "questions_ci": [
+        3.61,
+        3.776666666666667
+      ],
+      "deferrals": 0.0,
+      "deferrals_ci": [
+        0.0,
+        0.0
+      ],
+      "unnecessary_rate": 0.47487745098039214,
+      "unnecessary_rate_ci": [
+        0.45036764705882354,
+        0.49846531614487416
+      ],
+      "missed_rate": 0.32522303325223034,
+      "missed_rate_ci": [
+        0.2962046204620462,
+        0.3539325842696629
+      ],
+      "recovery_rate": 0.6131386861313869,
+      "recovery_rate_ci": [
+        0.5842696629213483,
+        0.6417069243156199
+      ],
+      "harm": 0.06910652083333334,
+      "harm_ci": [
+        0.060211729166666665,
+        0.07889291666666666
+      ],
+      "human_miss_rate": 0.09134615384615384,
+      "human_miss_rate_ci": [
+        0.07237635705669482,
+        0.11281489594742607
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.06740196078431372,
+      "human_error_rate_ci": [
+        0.05472636815920398,
+        0.08080194410692589
+      ],
+      "override_rate": 0.2420343137254902,
+      "override_rate_ci": [
+        0.22297714638665844,
+        0.25980392156862747
+      ],
+      "acceptance_rate": 0.4877450980392157,
+      "acceptance_rate_ci": [
+        0.46387370977534914,
+        0.5078864353312302
+      ],
+      "rework_steps": 0.8525,
+      "rework_steps_ci": [
+        0.7858333333333334,
+        0.9216666666666666
+      ],
+      "decision_latency_ms": 0.009315333333333333,
+      "decision_latency_ms_ci": [
+        0.009255416666666667,
+        0.009379916666666667
+      ],
+      "human_time_s": 25.876704166666666,
+      "human_time_s_ci": [
+        24.737423333333332,
+        27.065643333333334
+      ],
+      "workload_proxy": 3.394,
+      "workload_proxy_ci": [
+        3.3213541666666666,
+        3.4652291666666666
+      ]
+    },
+    {
+      "condition": "default",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 1200,
+      "task_success": 0.62,
+      "task_success_ci": [
+        0.5925,
+        0.6483333333333333
+      ],
+      "task_duration_s": 66.4578575,
+      "task_duration_s_ci": [
+        64.74023,
+        68.16378166666667
+      ],
+      "interventions": 1.0183333333333333,
+      "interventions_ci": [
+        0.9858333333333333,
+        1.0516666666666667
+      ],
+      "questions": 3.0183333333333335,
+      "questions_ci": [
+        2.9291666666666667,
+        3.1058333333333334
+      ],
+      "deferrals": 0.0,
+      "deferrals_ci": [
+        0.0,
+        0.0
+      ],
+      "unnecessary_rate": 0.42225859247135844,
+      "unnecessary_rate_ci": [
+        0.39371980676328505,
+        0.4479600333055787
+      ],
+      "missed_rate": 0.45660989456609896,
+      "missed_rate_ci": [
+        0.42495921696574224,
+        0.48586707410236823
+      ],
+      "recovery_rate": 0.49148418491484186,
+      "recovery_rate_ci": [
+        0.4630659253375695,
+        0.5222876366694701
+      ],
+      "harm": 0.1038763125,
+      "harm_ci": [
+        0.0920439375,
+        0.11525222916666666
+      ],
+      "human_miss_rate": 0.0955223880597015,
+      "human_miss_rate_ci": [
+        0.07228915662650602,
+        0.11862068965517242
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.07037643207855974,
+      "human_error_rate_ci": [
+        0.05492730210016155,
+        0.08562197092084006
+      ],
+      "override_rate": 0.28314238952536824,
+      "override_rate_ci": [
+        0.26224066390041495,
+        0.30303030303030304
+      ],
+      "acceptance_rate": 0.43944353518821605,
+      "acceptance_rate_ci": [
+        0.41418211120064463,
+        0.4636363636363636
+      ],
+      "rework_steps": 0.8525,
+      "rework_steps_ci": [
+        0.7858333333333334,
+        0.9216666666666666
+      ],
+      "decision_latency_ms": 0.009082833333333333,
+      "decision_latency_ms_ci": [
+        0.009042416666666666,
+        0.00912775
+      ],
+      "human_time_s": 22.02952416666667,
+      "human_time_s_ci": [
+        20.75631166666667,
+        23.35998
+      ],
+      "workload_proxy": 2.7457916666666664,
+      "workload_proxy_ci": [
+        2.6666875,
+        2.825979166666667
+      ]
+    },
+    {
+      "condition": "default",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 1200,
+      "task_success": 0.4191666666666667,
+      "task_success_ci": [
+        0.3908333333333333,
+        0.44666666666666666
+      ],
+      "task_duration_s": 54.5210225,
+      "task_duration_s_ci": [
+        53.15761,
+        55.86301666666666
+      ],
+      "interventions": 0.5083333333333333,
+      "interventions_ci": [
+        0.48,
+        0.535
+      ],
+      "questions": 1.175,
+      "questions_ci": [
+        1.0791666666666666,
+        1.2483333333333333
+      ],
+      "deferrals": 0.0,
+      "deferrals_ci": [
+        0.0,
+        0.0
+      ],
+      "unnecessary_rate": 0.3639344262295082,
+      "unnecessary_rate_ci": [
+        0.3231292517006803,
+        0.40031152647975077
+      ],
+      "missed_rate": 0.8126520681265207,
+      "missed_rate_ci": [
+        0.7871649065800163,
+        0.8368200836820083
+      ],
+      "recovery_rate": 0.17680454176804541,
+      "recovery_rate_ci": [
+        0.15219123505976095,
+        0.199836867862969
+      ],
+      "harm": 0.24744372916666668,
+      "harm_ci": [
+        0.23071437500000003,
+        0.2648591666666667
+      ],
+      "human_miss_rate": 0.05627705627705628,
+      "human_miss_rate_ci": [
+        0.026200873362445413,
+        0.09401709401709402
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.03770491803278689,
+      "human_error_rate_ci": [
+        0.02254428341384863,
+        0.054982817869415807
+      ],
+      "override_rate": 0.4163934426229508,
+      "override_rate_ci": [
+        0.38023450586264657,
+        0.4548611111111111
+      ],
+      "acceptance_rate": 0.3639344262295082,
+      "acceptance_rate_ci": [
+        0.32450331125827814,
+        0.4022801302931596
+      ],
+      "rework_steps": 0.34,
+      "rework_steps_ci": [
+        0.2925,
+        0.38916666666666666
+      ],
+      "decision_latency_ms": 0.008823666666666667,
+      "decision_latency_ms_ci": [
+        0.008772916666666667,
+        0.008878750000000001
+      ],
+      "human_time_s": 13.701022499999999,
+      "human_time_s_ci": [
+        12.743613333333332,
+        14.715784999999999
+      ],
+      "workload_proxy": 1.13625,
+      "workload_proxy_ci": [
+        1.0539166666666666,
+        1.2024166666666667
+      ]
+    },
+    {
+      "condition": "default",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 1200,
+      "task_success": 0.4191666666666667,
+      "task_success_ci": [
+        0.3908333333333333,
+        0.44666666666666666
+      ],
+      "task_duration_s": 54.5210225,
+      "task_duration_s_ci": [
+        53.15761,
+        55.86301666666666
+      ],
+      "interventions": 0.5083333333333333,
+      "interventions_ci": [
+        0.48,
+        0.535
+      ],
+      "questions": 1.175,
+      "questions_ci": [
+        1.0791666666666666,
+        1.2483333333333333
+      ],
+      "deferrals": 0.0,
+      "deferrals_ci": [
+        0.0,
+        0.0
+      ],
+      "unnecessary_rate": 0.3639344262295082,
+      "unnecessary_rate_ci": [
+        0.3231292517006803,
+        0.40031152647975077
+      ],
+      "missed_rate": 0.8126520681265207,
+      "missed_rate_ci": [
+        0.7871649065800163,
+        0.8368200836820083
+      ],
+      "recovery_rate": 0.17680454176804541,
+      "recovery_rate_ci": [
+        0.15219123505976095,
+        0.199836867862969
+      ],
+      "harm": 0.24744372916666668,
+      "harm_ci": [
+        0.23071437500000003,
+        0.2648591666666667
+      ],
+      "human_miss_rate": 0.05627705627705628,
+      "human_miss_rate_ci": [
+        0.026200873362445413,
+        0.09401709401709402
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.03770491803278689,
+      "human_error_rate_ci": [
+        0.02254428341384863,
+        0.054982817869415807
+      ],
+      "override_rate": 0.4163934426229508,
+      "override_rate_ci": [
+        0.38023450586264657,
+        0.4548611111111111
+      ],
+      "acceptance_rate": 0.3639344262295082,
+      "acceptance_rate_ci": [
+        0.32450331125827814,
+        0.4022801302931596
+      ],
+      "rework_steps": 0.34,
+      "rework_steps_ci": [
+        0.2925,
+        0.38916666666666666
+      ],
+      "decision_latency_ms": 0.008934083333333334,
+      "decision_latency_ms_ci": [
+        0.008831916666666667,
+        0.00905925
+      ],
+      "human_time_s": 13.701022499999999,
+      "human_time_s_ci": [
+        12.743613333333332,
+        14.715784999999999
+      ],
+      "workload_proxy": 1.13625,
+      "workload_proxy_ci": [
+        1.0539166666666666,
+        1.2024166666666667
+      ]
+    }
+  ],
+  "by_scenario": [
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 200,
+      "task_success": 0.515,
+      "task_duration_s": 51.271615000000004,
+      "interventions": 2.06,
+      "questions": 5.06,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6237864077669902,
+      "missed_rate": 0.32222222222222224,
+      "recovery_rate": 0.5962962962962963,
+      "harm": 0.092384375,
+      "human_miss_rate": 0.12021857923497267,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": 0.0825242718446602,
+      "override_rate": 0.15048543689320387,
+      "acceptance_rate": 0.6407766990291263,
+      "rework_steps": 0.52,
+      "decision_latency_ms": 0.009726,
+      "human_time_s": 26.191615000000002,
+      "workload_proxy": 4.72925
+    },
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 200,
+      "task_success": 0.325,
+      "task_duration_s": 34.806065,
+      "interventions": 1.035,
+      "questions": 2.035,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6811594202898551,
+      "missed_rate": 0.737037037037037,
+      "recovery_rate": 0.24074074074074073,
+      "harm": 0.20811,
+      "human_miss_rate": 0.08450704225352113,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": 0.06280193236714976,
+      "override_rate": 0.14009661835748793,
+      "acceptance_rate": 0.6714975845410628,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.009297,
+      "human_time_s": 11.806065,
+      "workload_proxy": 1.9954999999999998
+    },
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 200,
+      "task_success": 0.255,
+      "task_duration_s": 23.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.29754,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.00868,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 200,
+      "task_success": 0.255,
+      "task_duration_s": 23.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.29754,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.008621,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 200,
+      "task_success": 0.255,
+      "task_duration_s": 23.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.29754,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.00862,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 50.88537,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.33658536585365856,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9226804123711341,
+      "harm": 0.034896500000000004,
+      "human_miss_rate": 0.07731958762886598,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": 0.0975609756097561,
+      "override_rate": 0.1951219512195122,
+      "acceptance_rate": 0.375609756097561,
+      "rework_steps": 1.11,
+      "decision_latency_ms": 0.0093635,
+      "human_time_s": 17.94537,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 50.88537,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.33658536585365856,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9226804123711341,
+      "harm": 0.034896500000000004,
+      "human_miss_rate": 0.07731958762886598,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": 0.0975609756097561,
+      "override_rate": 0.1951219512195122,
+      "acceptance_rate": 0.375609756097561,
+      "rework_steps": 1.11,
+      "decision_latency_ms": 0.0090845,
+      "human_time_s": 17.94537,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 50.88537,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.33658536585365856,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9226804123711341,
+      "harm": 0.034896500000000004,
+      "human_miss_rate": 0.07731958762886598,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": 0.0975609756097561,
+      "override_rate": 0.1951219512195122,
+      "acceptance_rate": 0.375609756097561,
+      "rework_steps": 1.11,
+      "decision_latency_ms": 0.0092105,
+      "human_time_s": 17.94537,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 200,
+      "task_success": 0.32,
+      "task_duration_s": 28.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.467908,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.008394500000000001,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 200,
+      "task_success": 0.32,
+      "task_duration_s": 28.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.467908,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.008399,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 200,
+      "task_success": 0.635,
+      "task_duration_s": 51.08242,
+      "interventions": 1.025,
+      "questions": 2.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6487804878048781,
+      "missed_rate": 0.5,
+      "recovery_rate": 0.4817073170731707,
+      "harm": 0.041506625,
+      "human_miss_rate": 0.036585365853658534,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.03902439024390244,
+      "override_rate": 0.12195121951219512,
+      "acceptance_rate": 0.6390243902439025,
+      "rework_steps": 0.69,
+      "decision_latency_ms": 0.0175385,
+      "human_time_s": 12.14242,
+      "workload_proxy": 1.9825
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 200,
+      "task_success": 0.635,
+      "task_duration_s": 51.08242,
+      "interventions": 1.025,
+      "questions": 2.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6487804878048781,
+      "missed_rate": 0.5,
+      "recovery_rate": 0.4817073170731707,
+      "harm": 0.041506625,
+      "human_miss_rate": 0.036585365853658534,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.03902439024390244,
+      "override_rate": 0.12195121951219512,
+      "acceptance_rate": 0.6390243902439025,
+      "rework_steps": 0.69,
+      "decision_latency_ms": 0.008789,
+      "human_time_s": 12.14242,
+      "workload_proxy": 1.9825
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 200,
+      "task_success": 0.635,
+      "task_duration_s": 51.08242,
+      "interventions": 1.025,
+      "questions": 2.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6487804878048781,
+      "missed_rate": 0.5,
+      "recovery_rate": 0.4817073170731707,
+      "harm": 0.041506625,
+      "human_miss_rate": 0.036585365853658534,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.03902439024390244,
+      "override_rate": 0.12195121951219512,
+      "acceptance_rate": 0.6390243902439025,
+      "rework_steps": 0.69,
+      "decision_latency_ms": 0.0088445,
+      "human_time_s": 12.14242,
+      "workload_proxy": 1.9825
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 200,
+      "task_success": 0.635,
+      "task_duration_s": 51.08242,
+      "interventions": 1.025,
+      "questions": 2.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6487804878048781,
+      "missed_rate": 0.5,
+      "recovery_rate": 0.4817073170731707,
+      "harm": 0.041506625,
+      "human_miss_rate": 0.036585365853658534,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.03902439024390244,
+      "override_rate": 0.12195121951219512,
+      "acceptance_rate": 0.6390243902439025,
+      "rework_steps": 0.69,
+      "decision_latency_ms": 0.008789,
+      "human_time_s": 12.14242,
+      "workload_proxy": 1.9825
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 200,
+      "task_success": 0.635,
+      "task_duration_s": 51.08242,
+      "interventions": 1.025,
+      "questions": 2.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6487804878048781,
+      "missed_rate": 0.5,
+      "recovery_rate": 0.4817073170731707,
+      "harm": 0.041506625,
+      "human_miss_rate": 0.036585365853658534,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.03902439024390244,
+      "override_rate": 0.12195121951219512,
+      "acceptance_rate": 0.6390243902439025,
+      "rework_steps": 0.69,
+      "decision_latency_ms": 0.0088425,
+      "human_time_s": 12.14242,
+      "workload_proxy": 1.9825
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 200,
+      "task_success": 0.53,
+      "task_duration_s": 87.71951000000001,
+      "interventions": 1.02,
+      "questions": 3.02,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6225490196078431,
+      "missed_rate": 0.5228426395939086,
+      "recovery_rate": 0.4263959390862944,
+      "harm": 0.03593875,
+      "human_miss_rate": 0.10638297872340426,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": 0.06862745098039216,
+      "override_rate": 0.12254901960784313,
+      "acceptance_rate": 0.6274509803921569,
+      "rework_steps": 0.915,
+      "decision_latency_ms": 0.009373,
+      "human_time_s": 14.659510000000001,
+      "workload_proxy": 2.7270000000000003
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 200,
+      "task_success": 0.53,
+      "task_duration_s": 87.71951000000001,
+      "interventions": 1.02,
+      "questions": 3.02,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6225490196078431,
+      "missed_rate": 0.5228426395939086,
+      "recovery_rate": 0.4263959390862944,
+      "harm": 0.03593875,
+      "human_miss_rate": 0.10638297872340426,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": 0.06862745098039216,
+      "override_rate": 0.12254901960784313,
+      "acceptance_rate": 0.6274509803921569,
+      "rework_steps": 0.915,
+      "decision_latency_ms": 0.009243,
+      "human_time_s": 14.659510000000001,
+      "workload_proxy": 2.7270000000000003
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 200,
+      "task_success": 0.53,
+      "task_duration_s": 87.71951000000001,
+      "interventions": 1.02,
+      "questions": 3.02,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6225490196078431,
+      "missed_rate": 0.5228426395939086,
+      "recovery_rate": 0.4263959390862944,
+      "harm": 0.03593875,
+      "human_miss_rate": 0.10638297872340426,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": 0.06862745098039216,
+      "override_rate": 0.12254901960784313,
+      "acceptance_rate": 0.6274509803921569,
+      "rework_steps": 0.915,
+      "decision_latency_ms": 0.009308,
+      "human_time_s": 14.659510000000001,
+      "workload_proxy": 2.7270000000000003
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 200,
+      "task_success": 0.34,
+      "task_duration_s": 61.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.21140425000000002,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.00868,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 200,
+      "task_success": 0.34,
+      "task_duration_s": 61.0,
+      "interventions": 0.0,
+      "questions": 0.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": null,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.21140425000000002,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": null,
+      "override_rate": null,
+      "acceptance_rate": null,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.0086205,
+      "human_time_s": 0.0,
+      "workload_proxy": 0.0
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 200,
+      "task_success": 0.88,
+      "task_duration_s": 114.932035,
+      "interventions": 2.015,
+      "questions": 5.015,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.24317617866004962,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8278145695364238,
+      "harm": 0.0383675,
+      "human_miss_rate": 0.17218543046357615,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.07196029776674938,
+      "override_rate": 0.5632754342431762,
+      "acceptance_rate": 0.2729528535980149,
+      "rework_steps": 1.05,
+      "decision_latency_ms": 0.0144065,
+      "human_time_s": 70.282035,
+      "workload_proxy": 4.69525
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 200,
+      "task_success": 0.88,
+      "task_duration_s": 114.932035,
+      "interventions": 2.015,
+      "questions": 5.015,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.24317617866004962,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8278145695364238,
+      "harm": 0.0383675,
+      "human_miss_rate": 0.17218543046357615,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.07196029776674938,
+      "override_rate": 0.5632754342431762,
+      "acceptance_rate": 0.2729528535980149,
+      "rework_steps": 1.05,
+      "decision_latency_ms": 0.009958,
+      "human_time_s": 70.282035,
+      "workload_proxy": 4.69525
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 200,
+      "task_success": 0.88,
+      "task_duration_s": 114.932035,
+      "interventions": 2.015,
+      "questions": 5.015,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.24317617866004962,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8278145695364238,
+      "harm": 0.0383675,
+      "human_miss_rate": 0.17218543046357615,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.07196029776674938,
+      "override_rate": 0.5632754342431762,
+      "acceptance_rate": 0.2729528535980149,
+      "rework_steps": 1.05,
+      "decision_latency_ms": 0.009376,
+      "human_time_s": 70.282035,
+      "workload_proxy": 4.69525
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 200,
+      "task_success": 0.475,
+      "task_duration_s": 92.91590500000001,
+      "interventions": 1.0,
+      "questions": 1.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.0,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.291295,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.0,
+      "override_rate": 1.0,
+      "acceptance_rate": 0.0,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.0092045,
+      "human_time_s": 52.915905,
+      "workload_proxy": 1.3
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 200,
+      "task_success": 0.475,
+      "task_duration_s": 92.91590500000001,
+      "interventions": 1.0,
+      "questions": 1.0,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.0,
+      "missed_rate": 1.0,
+      "recovery_rate": 0.0,
+      "harm": 0.291295,
+      "human_miss_rate": null,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.0,
+      "override_rate": 1.0,
+      "acceptance_rate": 0.0,
+      "rework_steps": 0.0,
+      "decision_latency_ms": 0.0088845,
+      "human_time_s": 52.915905,
+      "workload_proxy": 1.3
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "fixed_threshold@0.15",
+      "episodes": 200,
+      "task_success": 0.89,
+      "task_duration_s": 86.3302,
+      "interventions": 2.7,
+      "questions": 6.7,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6018518518518519,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8910505836575876,
+      "harm": 0.051383124999999995,
+      "human_miss_rate": 0.09126984126984126,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.06481481481481481,
+      "override_rate": 0.1,
+      "acceptance_rate": 0.6185185185185185,
+      "rework_steps": 1.35,
+      "decision_latency_ms": 0.01039,
+      "human_time_s": 33.7902,
+      "workload_proxy": 6.40625
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "fixed_threshold@0.25",
+      "episodes": 200,
+      "task_success": 0.84,
+      "task_duration_s": 82.364825,
+      "interventions": 2.04,
+      "questions": 6.04,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.5073529411764706,
+      "missed_rate": 0.06614785992217899,
+      "recovery_rate": 0.8715953307392996,
+      "harm": 0.05581975,
+      "human_miss_rate": 0.06666666666666667,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.06372549019607843,
+      "override_rate": 0.12009803921568628,
+      "acceptance_rate": 0.5171568627450981,
+      "rework_steps": 1.35,
+      "decision_latency_ms": 0.0095205,
+      "human_time_s": 28.424825000000002,
+      "workload_proxy": 5.42875
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "fixed_threshold@0.35",
+      "episodes": 200,
+      "task_success": 0.49,
+      "task_duration_s": 71.12781,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.43414634146341463,
+      "missed_rate": 0.42023346303501946,
+      "recovery_rate": 0.5408560311284046,
+      "harm": 0.1750085,
+      "human_miss_rate": 0.06711409395973154,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.07317073170731707,
+      "override_rate": 0.14146341463414633,
+      "acceptance_rate": 0.44390243902439025,
+      "rework_steps": 1.35,
+      "decision_latency_ms": 0.009078,
+      "human_time_s": 17.14781,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "fixed_threshold@0.50",
+      "episodes": 200,
+      "task_success": 0.49,
+      "task_duration_s": 71.12781,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.43414634146341463,
+      "missed_rate": 0.42023346303501946,
+      "recovery_rate": 0.5408560311284046,
+      "harm": 0.1750085,
+      "human_miss_rate": 0.06711409395973154,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.07317073170731707,
+      "override_rate": 0.14146341463414633,
+      "acceptance_rate": 0.44390243902439025,
+      "rework_steps": 1.35,
+      "decision_latency_ms": 0.009253,
+      "human_time_s": 17.14781,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "fixed_threshold@0.65",
+      "episodes": 200,
+      "task_success": 0.49,
+      "task_duration_s": 71.12781,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.43414634146341463,
+      "missed_rate": 0.42023346303501946,
+      "recovery_rate": 0.5408560311284046,
+      "harm": 0.1750085,
+      "human_miss_rate": 0.06711409395973154,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.07317073170731707,
+      "override_rate": 0.14146341463414633,
+      "acceptance_rate": 0.44390243902439025,
+      "rework_steps": 1.35,
+      "decision_latency_ms": 0.010238,
+      "human_time_s": 17.14781,
+      "workload_proxy": 3.535
+    }
+  ],
+  "comparisons": [
+    {
+      "condition": "default",
+      "baseline": "fixed_threshold@0.15",
+      "treatment": "fixed_threshold@0.65",
+      "pairs": 1200,
+      "interventions": {
+        "mean_diff": -1.1325,
+        "ci": [
+          -1.1725,
+          -1.0908333333333333
+        ],
+        "share_treatment_lower": 0.8333333333333334
+      },
+      "unnecessary": {
+        "mean_diff": -0.6558333333333334,
+        "ci": [
+          -0.6966666666666667,
+          -0.6125
+        ],
+        "share_treatment_lower": 0.485
+      },
+      "missed_interventions": {
+        "mean_diff": 0.6083333333333333,
+        "ci": [
+          0.5625,
+          0.6475
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "harm": {
+        "mean_diff": 0.19836425000000002,
+        "ci": [
+          0.18097235416666665,
+          0.21605854166666666
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "task_duration_s": {
+        "mean_diff": -19.182502500000002,
+        "ci": [
+          -19.962184999999998,
+          -18.331982500000002
+        ],
+        "share_treatment_lower": 0.8333333333333334
+      },
+      "rework_steps": {
+        "mean_diff": -0.5991666666666666,
+        "ci": [
+          -0.6608333333333334,
+          -0.5366666666666666
+        ],
+        "share_treatment_lower": 0.29333333333333333
+      }
+    },
+    {
+      "condition": "default",
+      "baseline": "fixed_threshold@0.25",
+      "treatment": "fixed_threshold@0.65",
+      "pairs": 1200,
+      "interventions": {
+        "mean_diff": -0.8516666666666667,
+        "ci": [
+          -0.8758333333333334,
+          -0.8283333333333334
+        ],
+        "share_treatment_lower": 0.8333333333333334
+      },
+      "unnecessary": {
+        "mean_diff": -0.4608333333333333,
+        "ci": [
+          -0.4925,
+          -0.43416666666666665
+        ],
+        "share_treatment_lower": 0.44916666666666666
+      },
+      "missed_interventions": {
+        "mean_diff": 0.5008333333333334,
+        "ci": [
+          0.45916666666666667,
+          0.5375
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "harm": {
+        "mean_diff": 0.17833720833333333,
+        "ci": [
+          0.16124695833333333,
+          0.19525275
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "task_duration_s": {
+        "mean_diff": -15.777348333333332,
+        "ci": [
+          -16.5763725,
+          -15.036900833333332
+        ],
+        "share_treatment_lower": 0.8333333333333334
+      },
+      "rework_steps": {
+        "mean_diff": -0.5125,
+        "ci": [
+          -0.5741666666666667,
+          -0.45416666666666666
+        ],
+        "share_treatment_lower": 0.23416666666666666
+      }
+    },
+    {
+      "condition": "default",
+      "baseline": "fixed_threshold@0.35",
+      "treatment": "fixed_threshold@0.65",
+      "pairs": 1200,
+      "interventions": {
+        "mean_diff": -0.51,
+        "ci": [
+          -0.5433333333333333,
+          -0.48333333333333334
+        ],
+        "share_treatment_lower": 0.5
+      },
+      "unnecessary": {
+        "mean_diff": -0.245,
+        "ci": [
+          -0.26916666666666667,
+          -0.22166666666666668
+        ],
+        "share_treatment_lower": 0.24166666666666667
+      },
+      "missed_interventions": {
+        "mean_diff": 0.36583333333333334,
+        "ci": [
+          0.33,
+          0.4008333333333333
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "harm": {
+        "mean_diff": 0.14356741666666667,
+        "ci": [
+          0.1260705,
+          0.16029941666666667
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "task_duration_s": {
+        "mean_diff": -11.936835,
+        "ci": [
+          -12.808080833333333,
+          -11.14911
+        ],
+        "share_treatment_lower": 0.5
+      },
+      "rework_steps": {
+        "mean_diff": -0.5125,
+        "ci": [
+          -0.5741666666666667,
+          -0.45416666666666666
+        ],
+        "share_treatment_lower": 0.23416666666666666
+      }
+    },
+    {
+      "condition": "default",
+      "baseline": "fixed_threshold@0.50",
+      "treatment": "fixed_threshold@0.65",
+      "pairs": 1200,
+      "interventions": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "unnecessary": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "missed_interventions": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "harm": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "task_duration_s": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "rework_steps": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      }
+    }
+  ],
+  "duration_s": 19.834,
+  "result_hash": "e0d6c325efcce8209aaf5590c93ab974718fcefcfbb8bc18d4581e285dfeed9a",
+  "note": "SIMULATED RESULTS. Not evaluated with human participants."
+}

@@ -1,0 +1,17 @@
+# Adaptive (trajectory-aware) vs myopic expected-value policy: the timing ablation (H1b). SIMULATED.
+name = "adaptive"
+description = "Adaptive AgentPause vs the same model without timing (myopic_voi), plus a safety-floor variant."
+scenarios = ["all"]
+episodes = 200
+seed = 314159
+
+[[policies]]
+name = "myopic_voi"
+
+[[policies]]
+name = "adaptive"
+
+[[policies]]
+name = "user_customized"
+label = "adaptive+irreversible_floor"
+preferences = { profile = "balanced", ask_before_irreversible = true }

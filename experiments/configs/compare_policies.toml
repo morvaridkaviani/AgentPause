@@ -1,0 +1,43 @@
+# Main policy comparison (RQ1, H1a/H1b). SIMULATED.
+#
+# Seed 314159 is the held-out EVALUATION seed. Development and default-parameter choices used
+# seed 20261014 (see experiments/README.md). Do not tune anything on this seed.
+
+name = "compare_policies"
+description = "Core study conditions (A–E) plus additional baselines on all six scenarios."
+scenarios = ["all"]
+episodes = 200
+seed = 314159
+explain = "none"
+bootstrap = 1000
+
+[[policies]]
+name = "full_autonomy"
+
+[[policies]]
+name = "always_confirm"
+
+[[policies]]
+name = "fixed_threshold"
+config = { threshold = 0.35 }
+
+[[policies]]
+name = "rule_based"
+
+[[policies]]
+name = "confidence_threshold"
+config = { threshold = 0.8 }
+
+[[policies]]
+name = "myopic_voi"
+
+[[policies]]
+name = "adaptive"
+
+[[policies]]
+name = "user_customized"
+label = "user_customized"
+preferences = { profile = "balanced", ask_before_irreversible = true }
+
+[[policies]]
+name = "learned"

@@ -1,0 +1,25 @@
+{
+  "id": "koerber_tia",
+  "name": "Trust in Automation questionnaire (Körber)",
+  "citation": "Körber, M. (2019). Theoretical considerations and development of a questionnaire to measure trust in automation. In Proc. IEA 2018, AISC 823 (pp. 13–30). Springer.",
+  "doi": "10.1007/978-3-319-96074-6_2",
+  "source_url": "https://github.com/moritzkoerber/TiA_Trust_in_Automation_Questionnaire",
+  "license": "CC BY-SA 4.0 (per the author's repository). Not bundled here to keep ShareAlike material out of the MIT code tree; download the items and place them in INSTRUMENTS_LOCAL_DIR/koerber_tia.json. The English version is not yet validated.",
+  "redistributable": false,
+  "validated": true,
+  "construct": "trust in automation (6 subscales)",
+  "when": "post_task",
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 5,
+    "min_label": "Strongly disagree",
+    "max_label": "Strongly agree"
+  },
+  "items": [],
+  "scoring": {
+    "method": "mean",
+    "subscales": true
+  },
+  "notes": "The manual recommends analyzing subscales separately. Items 5, 7, 10, 15, 16 are reverse-coded (mark them with \"reverse\": true in your local file)."
+}

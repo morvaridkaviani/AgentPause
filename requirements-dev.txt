@@ -1,0 +1,7 @@
+# Development install of every Python package in the repository (editable), plus tooling.
+#   python -m venv .venv && . .venv/bin/activate && pip install -r requirements-dev.txt
+-e ./sdk/python
+-e ./simulator[figures]
+-e ./backend[dev]
+ruff==0.17.0
+mypy==2.4.0

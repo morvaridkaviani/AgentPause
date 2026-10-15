@@ -1,0 +1,105 @@
+{
+  "name": "sensitivity",
+  "description": "Agent calibration, upstream-mistake awareness, and user habituation varied; policies fixed.",
+  "policies": [
+    {
+      "name": "always_confirm",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "rule_based",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 150,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    },
+    {
+      "name": "uncalibrated_agent",
+      "user": {},
+      "engine": {
+        "calibration": 0.0,
+        "propagated_calibration": 0.0
+      },
+      "parameters": {}
+    },
+    {
+      "name": "unaware_of_upstream_mistakes",
+      "user": {},
+      "engine": {
+        "propagated_calibration": 0.0
+      },
+      "parameters": {}
+    },
+    {
+      "name": "well_calibrated_agent",
+      "user": {},
+      "engine": {
+        "calibration": 1.0,
+        "propagated_calibration": 0.7
+      },
+      "parameters": {}
+    },
+    {
+      "name": "fast_habituating_user",
+      "user": {
+        "habituation_rate": 0.35
+      },
+      "engine": {},
+      "parameters": {}
+    },
+    {
+      "name": "non_habituating_user",
+      "user": {
+        "habituation_rate": 0.0
+      },
+      "engine": {},
+      "parameters": {}
+    },
+    {
+      "name": "careless_user",
+      "user": {
+        "approval_vigilance": 0.6,
+        "clarification_accuracy": 0.8
+      },
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 300
+}

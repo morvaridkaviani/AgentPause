@@ -1,0 +1,337 @@
+{
+  "id": "travel",
+  "name": "Travel booking",
+  "agent_name": "Travel Agent",
+  "domain": "travel",
+  "icon": "plane",
+  "description": "Book a flight and a hotel for a workshop trip. Includes an irreversible purchase and an outgoing email.",
+  "goal": "Book me a flight to Vienna for the HCI workshop next Friday and a hotel near the venue for two nights. Keep it under €900.",
+  "brief": "You are travelling from Berlin to an HCI workshop in Vienna. The workshop is on {travel_date}. Your €900 limit means: {budget_scope}. Book under your saved traveler profile: {traveler_profile}. Regarding the itinerary email: {share_itinerary}.",
+  "assumptions": [
+    {
+      "id": "travel_date",
+      "description": "'next Friday' means Friday 14 November",
+      "kind": "input",
+      "confidence": 0.7,
+      "agent_value": "Fri 14 Nov",
+      "alternatives": [
+        "Fri 21 Nov"
+      ],
+      "introduced_at": "search_flights",
+      "if_wrong": "The flight and hotel would be booked for the wrong week."
+    },
+    {
+      "id": "budget_scope",
+      "description": "the €900 limit covers flight and hotel together",
+      "kind": "constraint",
+      "confidence": 0.85,
+      "agent_value": "€900 for flight + hotel",
+      "alternatives": [
+        "€900 for the flight only"
+      ],
+      "introduced_at": "search_flights",
+      "if_wrong": "Options would be filtered against the wrong budget."
+    },
+    {
+      "id": "traveler_profile",
+      "description": "you want to book with your saved profile 'Alex Morgan'",
+      "kind": "input",
+      "confidence": 0.92,
+      "agent_value": "Alex Morgan (saved profile)",
+      "alternatives": [
+        "Dr. Alex Morgan (university profile)"
+      ],
+      "introduced_at": "select_flight",
+      "if_wrong": "The ticket would be issued under the wrong traveler profile and reimbursement would fail."
+    },
+    {
+      "id": "share_itinerary",
+      "description": "you want the itinerary emailed to the workshop organizer",
+      "kind": "context",
+      "confidence": 0.6,
+      "agent_value": "Email the organizer",
+      "alternatives": [
+        "Do not email anyone"
+      ],
+      "introduced_at": "book_hotel",
+      "if_wrong": "An email you did not ask for would be sent to the organizer.",
+      "severity": 0.25
+    }
+  ],
+  "steps": [
+    {
+      "id": "search_flights",
+      "label": "Search flights",
+      "description": "Search flights Berlin → Vienna arriving by {travel_date}",
+      "subtask": "Find a flight",
+      "category": "read_only",
+      "agent_confidence": 0.96,
+      "depends_on": [
+        "travel_date"
+      ],
+      "breakpoint": true,
+      "load": 0.35,
+      "duration_s": 6,
+      "consequence": "No side effects (search only)",
+      "undo": "Nothing to undo",
+      "what_could_go_wrong": "Searching the wrong dates wastes a little time.",
+      "preview": {
+        "Route": "BER → VIE",
+        "Date": "{travel_date}",
+        "Passengers": "1 adult"
+      }
+    },
+    {
+      "id": "compare_flights",
+      "label": "Compare flights",
+      "description": "Compare 14 offers within {budget_scope}",
+      "subtask": "Find a flight",
+      "category": "read_only",
+      "agent_confidence": 0.93,
+      "depends_on": [
+        "travel_date",
+        "budget_scope"
+      ],
+      "breakpoint": false,
+      "load": 0.45,
+      "duration_s": 8,
+      "consequence": "No side effects",
+      "undo": "Nothing to undo",
+      "what_could_go_wrong": "Good options might be filtered out by a wrong budget.",
+      "preview": {
+        "Offers": "14",
+        "Filter": "{budget_scope}",
+        "Cheapest direct": "€212 (Austrian OS 236, 07:10)"
+      }
+    },
+    {
+      "id": "select_flight",
+      "label": "Select flight",
+      "description": "Select Austrian OS 236 (direct, 07:10, €212) and hold the fare",
+      "subtask": "Find a flight",
+      "category": "internal_draft",
+      "severity": 0.1,
+      "recoverability": 1.0,
+      "agent_confidence": 0.9,
+      "depends_on": [
+        "travel_date",
+        "budget_scope"
+      ],
+      "breakpoint": false,
+      "load": 0.45,
+      "duration_s": 4,
+      "consequence": "A fare is held for 20 minutes; nothing is paid",
+      "undo": "Release the held fare",
+      "what_could_go_wrong": "A worse flight could be held.",
+      "preview": {
+        "Flight": "OS 236, direct",
+        "Departure": "{travel_date}, 07:10",
+        "Fare": "€212 (Classic, 1 checked bag)"
+      }
+    },
+    {
+      "id": "enter_passenger_details",
+      "label": "Enter passenger details",
+      "description": "Fill in passenger details from {traveler_profile}",
+      "subtask": "Passenger details",
+      "category": "data_entry",
+      "agent_confidence": 0.92,
+      "depends_on": [
+        "traveler_profile"
+      ],
+      "breakpoint": true,
+      "load": 0.3,
+      "duration_s": 5,
+      "consequence": "Form filled in; not yet submitted",
+      "undo": "Edit the form",
+      "what_could_go_wrong": "A typo in the passport number makes boarding difficult.",
+      "preview": {
+        "Name": "{traveler_profile}",
+        "Passport": "C01X00T47",
+        "Email": "alex.morgan@example.org"
+      }
+    },
+    {
+      "id": "purchase_ticket",
+      "label": "Purchase ticket",
+      "description": "Purchase the flight for €212 with the saved card (simulated)",
+      "subtask": "Pay",
+      "category": "financial_transaction",
+      "severity": 0.8,
+      "recoverability": 0.05,
+      "agent_confidence": 0.9,
+      "depends_on": [
+        "travel_date",
+        "budget_scope",
+        "traveler_profile"
+      ],
+      "breakpoint": false,
+      "load": 0.4,
+      "duration_s": 7,
+      "consequence": "Non-refundable ticket purchase (simulated payment)",
+      "undo": "Cannot be undone (non-refundable fare)",
+      "what_could_go_wrong": "Wrong date, traveler, or flight means a lost non-refundable ticket.",
+      "preview": {
+        "Flight": "OS 236, {travel_date}, 07:10",
+        "Traveler": "{traveler_profile}",
+        "Passport": "C01X00T47",
+        "Total": "€212"
+      },
+      "alternatives": [
+        "Hold the fare and remind me tonight",
+        "Choose a refundable fare (+€64)"
+      ]
+    },
+    {
+      "id": "search_hotels",
+      "label": "Search hotels",
+      "description": "Search hotels within 1 km of the workshop venue for 2 nights from {travel_date}",
+      "subtask": "Find a hotel",
+      "category": "read_only",
+      "agent_confidence": 0.95,
+      "depends_on": [
+        "travel_date"
+      ],
+      "breakpoint": true,
+      "load": 0.3,
+      "duration_s": 6,
+      "consequence": "No side effects",
+      "undo": "Nothing to undo",
+      "what_could_go_wrong": "Wrong dates waste a little time.",
+      "preview": {
+        "Area": "1 km around TU Wien",
+        "Check-in": "{travel_date}",
+        "Nights": "2"
+      }
+    },
+    {
+      "id": "book_hotel",
+      "label": "Book hotel",
+      "description": "Book Hotel Karlsplatz for 2 nights (€318, free cancellation until 48 h before)",
+      "subtask": "Find a hotel",
+      "category": "financial_transaction",
+      "severity": 0.45,
+      "recoverability": 0.65,
+      "agent_confidence": 0.88,
+      "depends_on": [
+        "travel_date",
+        "budget_scope"
+      ],
+      "breakpoint": false,
+      "load": 0.35,
+      "duration_s": 6,
+      "consequence": "Hotel booking (simulated), payment at the hotel",
+      "undo": "Free cancellation until 48 h before check-in",
+      "what_could_go_wrong": "The wrong branch or dates could be booked.",
+      "preview": {
+        "Hotel": "Hotel Karlsplatz",
+        "Distance": "450 m from venue",
+        "Dates": "{travel_date} + 2 nights",
+        "Price": "€318"
+      }
+    },
+    {
+      "id": "send_itinerary",
+      "label": "Email itinerary",
+      "description": "Email the itinerary to the workshop organizer (simulated)",
+      "subtask": "Wrap up",
+      "category": "external_communication",
+      "severity": 0.3,
+      "recoverability": 0.02,
+      "agent_confidence": 0.9,
+      "depends_on": [
+        "share_itinerary"
+      ],
+      "breakpoint": true,
+      "load": 0.25,
+      "duration_s": 4,
+      "consequence": "An email leaves your account (simulated)",
+      "undo": "Cannot be unsent",
+      "what_could_go_wrong": "An unrequested or wrongly addressed email reaches other people.",
+      "preview": {
+        "To": "organizer@hci-workshop.example",
+        "Subject": "Travel itinerary – Alex Morgan",
+        "Attachments": "itinerary.pdf"
+      },
+      "skip_if": {
+        "share_itinerary": "Do not email anyone"
+      }
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "passport_typo",
+      "step": "enter_passenger_details",
+      "description": "The passport number has a typo (C01X00T74 instead of C01X00T47).",
+      "probability": 0.08,
+      "severity": 0.5,
+      "recoverability": 0.3,
+      "visible_at": [
+        "enter_passenger_details",
+        "purchase_ticket"
+      ],
+      "harm_at": "purchase_ticket",
+      "preview": {
+        "enter_passenger_details": {
+          "Passport": "C01X00T74"
+        },
+        "purchase_ticket": {
+          "Passport": "C01X00T74"
+        }
+      }
+    },
+    {
+      "id": "layover_flight",
+      "step": "purchase_ticket",
+      "description": "The agent is about to buy a €249 flight with a 7-hour layover in Frankfurt instead of the €212 direct flight.",
+      "probability": 0.12,
+      "severity": 0.55,
+      "recoverability": 0.05,
+      "visible_at": [
+        "purchase_ticket"
+      ],
+      "harm_at": "purchase_ticket",
+      "preview": {
+        "purchase_ticket": {
+          "Flight": "LH 1234 via FRA (7 h layover), {travel_date}",
+          "Total": "€249"
+        }
+      }
+    },
+    {
+      "id": "wrong_hotel_branch",
+      "step": "book_hotel",
+      "description": "The agent picked the Karlsplatz hotel chain's airport branch, 19 km from the venue.",
+      "probability": 0.1,
+      "severity": 0.35,
+      "recoverability": 0.65,
+      "visible_at": [
+        "book_hotel"
+      ],
+      "harm_at": "book_hotel",
+      "preview": {
+        "book_hotel": {
+          "Hotel": "Hotel Karlsplatz – Airport",
+          "Distance": "19 km from venue"
+        }
+      }
+    },
+    {
+      "id": "cc_mailing_list",
+      "step": "send_itinerary",
+      "description": "The email CCs the whole workshop mailing list (412 people).",
+      "probability": 0.08,
+      "severity": 0.45,
+      "recoverability": 0.02,
+      "visible_at": [
+        "send_itinerary"
+      ],
+      "harm_at": "send_itinerary",
+      "preview": {
+        "send_itinerary": {
+          "To": "organizer@hci-workshop.example; Cc: attendees@hci-workshop.example"
+        }
+      }
+    }
+  ]
+}

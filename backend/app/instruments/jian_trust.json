@@ -1,0 +1,24 @@
+{
+  "id": "jian_trust",
+  "name": "Trust between People and Automation (Jian, Bisantz & Drury)",
+  "citation": "Jian, J.-Y., Bisantz, A. M., & Drury, C. G. (2000). Foundations for an empirically determined scale of trust in automated systems. International Journal of Cognitive Ergonomics, 4(1), 53–71.",
+  "doi": "10.1207/S15327566IJCE0401_04",
+  "source_url": "https://doi.org/10.1207/S15327566IJCE0401_04",
+  "license": "No reuse license found. Reference only; obtain the items from the original publication.",
+  "redistributable": false,
+  "validated": true,
+  "construct": "trust in automation",
+  "when": "post_task",
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 7,
+    "min_label": "Not at all",
+    "max_label": "Extremely"
+  },
+  "items": [],
+  "scoring": {
+    "method": "mean"
+  },
+  "notes": "Hoffman et al. (2018) criticize some items as redundant; consider alternatives."
+}

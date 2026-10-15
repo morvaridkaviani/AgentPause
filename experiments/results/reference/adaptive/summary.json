@@ -1,0 +1,885 @@
+{
+  "config": {
+    "name": "adaptive",
+    "description": "Adaptive AgentPause vs the same model without timing (myopic_voi), plus a safety-floor variant.",
+    "policies": [
+      {
+        "name": "myopic_voi",
+        "config": {},
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": null
+      },
+      {
+        "name": "adaptive",
+        "config": {},
+        "preferences": null,
+        "parameters": {},
+        "ablate": [],
+        "label": null
+      },
+      {
+        "name": "user_customized",
+        "config": {},
+        "preferences": {
+          "profile": "balanced",
+          "ask_before_irreversible": true
+        },
+        "parameters": {},
+        "ablate": [],
+        "label": "adaptive+irreversible_floor"
+      }
+    ],
+    "scenarios": [
+      "all"
+    ],
+    "episodes": 200,
+    "seed": 314159,
+    "conditions": [
+      {
+        "name": "default",
+        "user": {},
+        "engine": {},
+        "parameters": {}
+      }
+    ],
+    "explain": "none",
+    "keep_records": true,
+    "bootstrap": 500
+  },
+  "aggregates": [
+    {
+      "condition": "default",
+      "policy": "adaptive",
+      "episodes": 1200,
+      "task_success": 0.8191666666666667,
+      "task_success_ci": [
+        0.7975,
+        0.8391666666666666
+      ],
+      "task_duration_s": 75.73424916666667,
+      "task_duration_s_ci": [
+        74.39297583333332,
+        77.0845075
+      ],
+      "interventions": 2.6283333333333334,
+      "interventions_ci": [
+        2.5683333333333334,
+        2.6783333333333332
+      ],
+      "questions": 4.3758333333333335,
+      "questions_ci": [
+        4.29,
+        4.451666666666667
+      ],
+      "deferrals": 1.8333333333333333,
+      "deferrals_ci": [
+        1.7691666666666668,
+        1.8983333333333334
+      ],
+      "unnecessary_rate": 0.6290424857324033,
+      "unnecessary_rate_ci": [
+        0.6113207547169811,
+        0.6453723901526955
+      ],
+      "missed_rate": 0.1151662611516626,
+      "missed_rate_ci": [
+        0.09546165884194054,
+        0.13687600644122383
+      ],
+      "recovery_rate": 0.7907542579075426,
+      "recovery_rate_ci": [
+        0.7657142857142857,
+        0.8143100511073254
+      ],
+      "harm": 0.038365187499999995,
+      "harm_ci": [
+        0.031071625,
+        0.046838854166666666
+      ],
+      "human_miss_rate": 0.10138248847926268,
+      "human_miss_rate_ci": [
+        0.08373904576436222,
+        0.12022367194780988
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.04597336715282181,
+      "human_error_rate_ci": [
+        0.039375,
+        0.053763440860215055
+      ],
+      "override_rate": 0.13601775523145213,
+      "override_rate_ci": [
+        0.12571247625079163,
+        0.14662849872773537
+      ],
+      "acceptance_rate": 0.6509194673430564,
+      "acceptance_rate_ci": [
+        0.6339622641509434,
+        0.6668755875900971
+      ],
+      "rework_steps": 0.43666666666666665,
+      "rework_steps_ci": [
+        0.39416666666666667,
+        0.485
+      ],
+      "decision_latency_ms": 0.026551333333333333,
+      "decision_latency_ms_ci": [
+        0.02596175,
+        0.027413
+      ],
+      "human_time_s": 34.95674916666667,
+      "human_time_s_ci": [
+        33.75527666666667,
+        36.1352325
+      ],
+      "workload_proxy": 4.703416666666667,
+      "workload_proxy_ci": [
+        4.623,
+        4.780749999999999
+      ]
+    },
+    {
+      "condition": "default",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 1200,
+      "task_success": 0.8125,
+      "task_success_ci": [
+        0.79,
+        0.8333333333333334
+      ],
+      "task_duration_s": 78.86349,
+      "task_duration_s_ci": [
+        77.55410083333334,
+        80.20049333333334
+      ],
+      "interventions": 2.9825,
+      "interventions_ci": [
+        2.9141666666666666,
+        3.0441666666666665
+      ],
+      "questions": 4.815833333333333,
+      "questions_ci": [
+        4.715833333333333,
+        4.9075
+      ],
+      "deferrals": 1.8333333333333333,
+      "deferrals_ci": [
+        1.7691666666666668,
+        1.8983333333333334
+      ],
+      "unnecessary_rate": 0.6730930427493713,
+      "unnecessary_rate_ci": [
+        0.6564753389097202,
+        0.6882467352042234
+      ],
+      "missed_rate": 0.1151662611516626,
+      "missed_rate_ci": [
+        0.09546165884194054,
+        0.13687600644122383
+      ],
+      "recovery_rate": 0.7834549878345499,
+      "recovery_rate_ci": [
+        0.7581168831168831,
+        0.8061056105610561
+      ],
+      "harm": 0.039921020833333334,
+      "harm_ci": [
+        0.032396562500000003,
+        0.048759625
+      ],
+      "human_miss_rate": 0.10967741935483871,
+      "human_miss_rate_ci": [
+        0.0915032679738562,
+        0.1309192200557103
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.04694048616932104,
+      "human_error_rate_ci": [
+        0.040177334441673596,
+        0.05419677598665926
+      ],
+      "override_rate": 0.12321877619446772,
+      "override_rate_ci": [
+        0.11376404494382023,
+        0.1328847771236333
+      ],
+      "acceptance_rate": 0.6909751327186365,
+      "acceptance_rate_ci": [
+        0.6751845542305508,
+        0.7053402005963676
+      ],
+      "rework_steps": 0.43666666666666665,
+      "rework_steps_ci": [
+        0.39416666666666667,
+        0.485
+      ],
+      "decision_latency_ms": 0.02998325,
+      "decision_latency_ms_ci": [
+        0.02980175,
+        0.03013916666666667
+      ],
+      "human_time_s": 38.024323333333335,
+      "human_time_s_ci": [
+        36.7356925,
+        39.23520083333334
+      ],
+      "workload_proxy": 5.231583333333333,
+      "workload_proxy_ci": [
+        5.131625,
+        5.324625
+      ]
+    },
+    {
+      "condition": "default",
+      "policy": "myopic_voi",
+      "episodes": 1200,
+      "task_success": 0.78,
+      "task_success_ci": [
+        0.7566666666666667,
+        0.8025
+      ],
+      "task_duration_s": 77.81263,
+      "task_duration_s_ci": [
+        76.55557166666667,
+        79.13200666666667
+      ],
+      "interventions": 3.256666666666667,
+      "interventions_ci": [
+        3.2016666666666667,
+        3.3016666666666667
+      ],
+      "questions": 4.170833333333333,
+      "questions_ci": [
+        4.079166666666667,
+        4.264166666666667
+      ],
+      "deferrals": 0.0,
+      "deferrals_ci": [
+        0.0,
+        0.0
+      ],
+      "unnecessary_rate": 0.6926816786079836,
+      "unnecessary_rate_ci": [
+        0.6775510204081633,
+        0.7071205821205822
+      ],
+      "missed_rate": 0.15004055150040552,
+      "missed_rate_ci": [
+        0.12608353033884948,
+        0.1730319563522993
+      ],
+      "recovery_rate": 0.7469586374695864,
+      "recovery_rate_ci": [
+        0.7200315457413249,
+        0.7689110556940981
+      ],
+      "harm": 0.047736812499999996,
+      "harm_ci": [
+        0.040744999999999996,
+        0.055639062499999996
+      ],
+      "human_miss_rate": 0.11781609195402298,
+      "human_miss_rate_ci": [
+        0.09878844361602983,
+        0.13712686567164178
+      ],
+      "agent_error_rate": 0.137,
+      "agent_error_rate_ci": [
+        0.12982261640798226,
+        0.14441356309060588
+      ],
+      "human_error_rate": 0.038894575230296824,
+      "human_error_rate_ci": [
+        0.03319713993871297,
+        0.045141545524101
+      ],
+      "override_rate": 0.10772773797338792,
+      "override_rate_ci": [
+        0.09969246540235777,
+        0.11662846956964604
+      ],
+      "acceptance_rate": 0.7149437052200615,
+      "acceptance_rate_ci": [
+        0.700815494393476,
+        0.7288525428060312
+      ],
+      "rework_steps": 0.10333333333333333,
+      "rework_steps_ci": [
+        0.08583333333333333,
+        0.12083333333333333
+      ],
+      "decision_latency_ms": 0.019054916666666668,
+      "decision_latency_ms_ci": [
+        0.018852999999999998,
+        0.019335166666666667
+      ],
+      "human_time_s": 38.547630000000005,
+      "human_time_s_ci": [
+        37.36163083333334,
+        39.681173333333334
+      ],
+      "workload_proxy": 5.135458333333333,
+      "workload_proxy_ci": [
+        5.042791666666667,
+        5.225208333333334
+      ]
+    }
+  ],
+  "by_scenario": [
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "adaptive",
+      "episodes": 200,
+      "task_success": 0.85,
+      "task_duration_s": 59.33247,
+      "interventions": 3.2,
+      "questions": 5.685,
+      "deferrals": 2.0,
+      "unnecessary_rate": 0.6,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8814814814814815,
+      "harm": 0.034375,
+      "human_miss_rate": 0.11851851851851852,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": 0.059375,
+      "override_rate": 0.08125,
+      "acceptance_rate": 0.6375,
+      "rework_steps": 0.525,
+      "decision_latency_ms": 0.028131499999999997,
+      "human_time_s": 34.61247,
+      "workload_proxy": 5.784
+    },
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 200,
+      "task_success": 0.81,
+      "task_duration_s": 67.91985,
+      "interventions": 4.05,
+      "questions": 7.05,
+      "deferrals": 2.0,
+      "unnecessary_rate": 0.6839506172839506,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8481481481481481,
+      "harm": 0.04371,
+      "human_miss_rate": 0.15185185185185185,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": 0.06419753086419754,
+      "override_rate": 0.06790123456790123,
+      "acceptance_rate": 0.7185185185185186,
+      "rework_steps": 0.525,
+      "decision_latency_ms": 0.03336,
+      "human_time_s": 42.82984999999999,
+      "workload_proxy": 7.265750000000001
+    },
+    {
+      "condition": "default",
+      "scenario": "calendar",
+      "policy": "myopic_voi",
+      "episodes": 200,
+      "task_success": 0.855,
+      "task_duration_s": 58.86226,
+      "interventions": 3.2,
+      "questions": 5.685,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.6,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8888888888888888,
+      "harm": 0.03191625,
+      "human_miss_rate": 0.1111111111111111,
+      "agent_error_rate": 0.19285714285714287,
+      "human_error_rate": 0.05625,
+      "override_rate": 0.08125,
+      "acceptance_rate": 0.6328125,
+      "rework_steps": 0.13,
+      "decision_latency_ms": 0.02015,
+      "human_time_s": 35.65226,
+      "workload_proxy": 6.084
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "adaptive",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 50.88537,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 4.0,
+      "unnecessary_rate": 0.33658536585365856,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9226804123711341,
+      "harm": 0.034896500000000004,
+      "human_miss_rate": 0.07731958762886598,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": 0.0975609756097561,
+      "override_rate": 0.1951219512195122,
+      "acceptance_rate": 0.375609756097561,
+      "rework_steps": 1.11,
+      "decision_latency_ms": 0.0341085,
+      "human_time_s": 17.94537,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 50.88537,
+      "interventions": 1.025,
+      "questions": 4.025,
+      "deferrals": 4.0,
+      "unnecessary_rate": 0.33658536585365856,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9226804123711341,
+      "harm": 0.034896500000000004,
+      "human_miss_rate": 0.07731958762886598,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": 0.0975609756097561,
+      "override_rate": 0.1951219512195122,
+      "acceptance_rate": 0.375609756097561,
+      "rework_steps": 1.11,
+      "decision_latency_ms": 0.0336245,
+      "human_time_s": 17.94537,
+      "workload_proxy": 3.535
+    },
+    {
+      "condition": "default",
+      "scenario": "email",
+      "policy": "myopic_voi",
+      "episodes": 200,
+      "task_success": 0.89,
+      "task_duration_s": 63.30845,
+      "interventions": 3.92,
+      "questions": 3.92,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.7563775510204082,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.865979381443299,
+      "harm": 0.0614375,
+      "human_miss_rate": 0.13402061855670103,
+      "agent_error_rate": 0.12125,
+      "human_error_rate": 0.036989795918367346,
+      "override_rate": 0.04591836734693878,
+      "acceptance_rate": 0.7831632653061225,
+      "rework_steps": 0.065,
+      "decision_latency_ms": 0.018481,
+      "human_time_s": 34.78845,
+      "workload_proxy": 5.588000000000001
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "adaptive",
+      "episodes": 200,
+      "task_success": 0.76,
+      "task_duration_s": 57.13461,
+      "interventions": 2.035,
+      "questions": 3.035,
+      "deferrals": 2.0,
+      "unnecessary_rate": 0.7321867321867321,
+      "missed_rate": 0.23780487804878048,
+      "recovery_rate": 0.6829268292682927,
+      "harm": 0.043258625,
+      "human_miss_rate": 0.104,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.04914004914004914,
+      "override_rate": 0.056511056511056514,
+      "acceptance_rate": 0.742014742014742,
+      "rework_steps": 0.365,
+      "decision_latency_ms": 0.0247275,
+      "human_time_s": 19.53461,
+      "workload_proxy": 3.2955
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 200,
+      "task_success": 0.76,
+      "task_duration_s": 57.13461,
+      "interventions": 2.035,
+      "questions": 3.035,
+      "deferrals": 2.0,
+      "unnecessary_rate": 0.7321867321867321,
+      "missed_rate": 0.23780487804878048,
+      "recovery_rate": 0.6829268292682927,
+      "harm": 0.043258625,
+      "human_miss_rate": 0.104,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.04914004914004914,
+      "override_rate": 0.056511056511056514,
+      "acceptance_rate": 0.742014742014742,
+      "rework_steps": 0.365,
+      "decision_latency_ms": 0.0285245,
+      "human_time_s": 19.53461,
+      "workload_proxy": 3.2955
+    },
+    {
+      "condition": "default",
+      "scenario": "files",
+      "policy": "myopic_voi",
+      "episodes": 200,
+      "task_success": 0.625,
+      "task_duration_s": 52.67794,
+      "interventions": 2.035,
+      "questions": 2.035,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.7985257985257985,
+      "missed_rate": 0.5,
+      "recovery_rate": 0.4573170731707317,
+      "harm": 0.058217625,
+      "human_miss_rate": 0.08536585365853659,
+      "agent_error_rate": 0.1025,
+      "human_error_rate": 0.0343980343980344,
+      "override_rate": 0.056511056511056514,
+      "acceptance_rate": 0.7985257985257985,
+      "rework_steps": 0.08,
+      "decision_latency_ms": 0.019305000000000003,
+      "human_time_s": 17.35794,
+      "workload_proxy": 2.7455000000000003
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "adaptive",
+      "episodes": 200,
+      "task_success": 0.55,
+      "task_duration_s": 84.90693999999999,
+      "interventions": 2.6,
+      "questions": 2.6,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.8192307692307692,
+      "missed_rate": 0.5228426395939086,
+      "recovery_rate": 0.4213197969543147,
+      "harm": 0.0371675,
+      "human_miss_rate": 0.11702127659574468,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": 0.025,
+      "override_rate": 0.04038461538461539,
+      "acceptance_rate": 0.8365384615384616,
+      "rework_steps": 0.095,
+      "decision_latency_ms": 0.0231685,
+      "human_time_s": 22.00694,
+      "workload_proxy": 3.56
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 200,
+      "task_success": 0.55,
+      "task_duration_s": 88.388465,
+      "interventions": 3.03,
+      "questions": 3.03,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.8448844884488449,
+      "missed_rate": 0.5228426395939086,
+      "recovery_rate": 0.4213197969543147,
+      "harm": 0.0371675,
+      "human_miss_rate": 0.11702127659574468,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": 0.028052805280528052,
+      "override_rate": 0.041254125412541254,
+      "acceptance_rate": 0.8531353135313532,
+      "rework_steps": 0.095,
+      "decision_latency_ms": 0.027072,
+      "human_time_s": 25.488465,
+      "workload_proxy": 4.140499999999999
+    },
+    {
+      "condition": "default",
+      "scenario": "research",
+      "policy": "myopic_voi",
+      "episodes": 200,
+      "task_success": 0.55,
+      "task_duration_s": 84.90693999999999,
+      "interventions": 2.6,
+      "questions": 2.6,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.8192307692307692,
+      "missed_rate": 0.5228426395939086,
+      "recovery_rate": 0.4213197969543147,
+      "harm": 0.0371675,
+      "human_miss_rate": 0.11702127659574468,
+      "agent_error_rate": 0.1407142857142857,
+      "human_error_rate": 0.025,
+      "override_rate": 0.04038461538461539,
+      "acceptance_rate": 0.8365384615384616,
+      "rework_steps": 0.095,
+      "decision_latency_ms": 0.019731000000000002,
+      "human_time_s": 22.00694,
+      "workload_proxy": 3.56
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "adaptive",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 119.28659499999999,
+      "interventions": 3.51,
+      "questions": 4.51,
+      "deferrals": 1.0,
+      "unnecessary_rate": 0.5113960113960114,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9072847682119205,
+      "harm": 0.02328125,
+      "human_miss_rate": 0.09271523178807947,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.019943019943019943,
+      "override_rate": 0.3319088319088319,
+      "acceptance_rate": 0.5299145299145299,
+      "rework_steps": 0.39,
+      "decision_latency_ms": 0.0226725,
+      "human_time_s": 78.116595,
+      "workload_proxy": 5.3885000000000005
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 200,
+      "task_success": 0.93,
+      "task_duration_s": 123.35634,
+      "interventions": 4.015,
+      "questions": 5.015,
+      "deferrals": 1.0,
+      "unnecessary_rate": 0.572851805728518,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9072847682119205,
+      "harm": 0.02328125,
+      "human_miss_rate": 0.09271523178807947,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.021170610211706103,
+      "override_rate": 0.29389788293897884,
+      "acceptance_rate": 0.5853051058530511,
+      "rework_steps": 0.39,
+      "decision_latency_ms": 0.0264,
+      "human_time_s": 82.18634,
+      "workload_proxy": 6.07025
+    },
+    {
+      "condition": "default",
+      "scenario": "shopping",
+      "policy": "myopic_voi",
+      "episodes": 200,
+      "task_success": 0.925,
+      "task_duration_s": 119.5551,
+      "interventions": 3.51,
+      "questions": 4.51,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.5113960113960114,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.9006622516556292,
+      "harm": 0.02551625,
+      "human_miss_rate": 0.09933774834437085,
+      "agent_error_rate": 0.10785714285714286,
+      "human_error_rate": 0.021367521367521368,
+      "override_rate": 0.3319088319088319,
+      "acceptance_rate": 0.5313390313390314,
+      "rework_steps": 0.185,
+      "decision_latency_ms": 0.017199,
+      "human_time_s": 79.0001,
+      "workload_proxy": 5.5885
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "adaptive",
+      "episodes": 200,
+      "task_success": 0.895,
+      "task_duration_s": 82.85950999999999,
+      "interventions": 3.4,
+      "questions": 6.4,
+      "deferrals": 2.0,
+      "unnecessary_rate": 0.6588235294117647,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8793774319066148,
+      "harm": 0.057212250000000006,
+      "human_miss_rate": 0.099601593625498,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.058823529411764705,
+      "override_rate": 0.08823529411764706,
+      "acceptance_rate": 0.675,
+      "rework_steps": 0.135,
+      "decision_latency_ms": 0.0264995,
+      "human_time_s": 37.52451,
+      "workload_proxy": 6.6575
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "adaptive+irreversible_floor",
+      "episodes": 200,
+      "task_success": 0.895,
+      "task_duration_s": 85.49630499999999,
+      "interventions": 3.74,
+      "questions": 6.74,
+      "deferrals": 2.0,
+      "unnecessary_rate": 0.6898395721925134,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8793774319066148,
+      "harm": 0.057212250000000006,
+      "human_miss_rate": 0.099601593625498,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.05614973262032086,
+      "override_rate": 0.08288770053475936,
+      "acceptance_rate": 0.7018716577540107,
+      "rework_steps": 0.135,
+      "decision_latency_ms": 0.0309185,
+      "human_time_s": 40.161305,
+      "workload_proxy": 7.0825
+    },
+    {
+      "condition": "default",
+      "scenario": "travel",
+      "policy": "myopic_voi",
+      "episodes": 200,
+      "task_success": 0.835,
+      "task_duration_s": 87.56509,
+      "interventions": 4.275,
+      "questions": 6.275,
+      "deferrals": 0.0,
+      "unnecessary_rate": 0.7251461988304093,
+      "missed_rate": 0.0,
+      "recovery_rate": 0.8521400778210116,
+      "harm": 0.07216575,
+      "human_miss_rate": 0.13438735177865613,
+      "agent_error_rate": 0.160625,
+      "human_error_rate": 0.05263157894736842,
+      "override_rate": 0.06549707602339182,
+      "acceptance_rate": 0.7508771929824561,
+      "rework_steps": 0.065,
+      "decision_latency_ms": 0.0194635,
+      "human_time_s": 42.48009,
+      "workload_proxy": 7.2467500000000005
+    }
+  ],
+  "comparisons": [
+    {
+      "condition": "default",
+      "baseline": "myopic_voi",
+      "treatment": "adaptive",
+      "pairs": 1200,
+      "interventions": {
+        "mean_diff": -0.6283333333333333,
+        "ci": [
+          -0.6933333333333334,
+          -0.5675
+        ],
+        "share_treatment_lower": 0.30666666666666664
+      },
+      "unnecessary": {
+        "mean_diff": -0.6025,
+        "ci": [
+          -0.6583333333333333,
+          -0.55
+        ],
+        "share_treatment_lower": 0.32916666666666666
+      },
+      "missed_interventions": {
+        "mean_diff": -0.035833333333333335,
+        "ci": [
+          -0.04666666666666667,
+          -0.025833333333333333
+        ],
+        "share_treatment_lower": 0.035833333333333335
+      },
+      "harm": {
+        "mean_diff": -0.009371625,
+        "ci": [
+          -0.016513020833333333,
+          -0.0026921874999999997
+        ],
+        "share_treatment_lower": 0.0725
+      },
+      "task_duration_s": {
+        "mean_diff": -2.0783808333333336,
+        "ci": [
+          -2.5524541666666662,
+          -1.652619166666667
+        ],
+        "share_treatment_lower": 0.47583333333333333
+      },
+      "rework_steps": {
+        "mean_diff": 0.3333333333333333,
+        "ci": [
+          0.2916666666666667,
+          0.36833333333333335
+        ],
+        "share_treatment_lower": 0.0016666666666666668
+      }
+    },
+    {
+      "condition": "default",
+      "baseline": "adaptive+irreversible_floor",
+      "treatment": "adaptive",
+      "pairs": 1200,
+      "interventions": {
+        "mean_diff": -0.3541666666666667,
+        "ci": [
+          -0.385,
+          -0.32666666666666666
+        ],
+        "share_treatment_lower": 0.34
+      },
+      "unnecessary": {
+        "mean_diff": -0.3541666666666667,
+        "ci": [
+          -0.38333333333333336,
+          -0.3258333333333333
+        ],
+        "share_treatment_lower": 0.34
+      },
+      "missed_interventions": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      },
+      "harm": {
+        "mean_diff": -0.0015558333333333333,
+        "ci": [
+          -0.00336,
+          -9.500000000000002e-05
+        ],
+        "share_treatment_lower": 0.014166666666666666
+      },
+      "task_duration_s": {
+        "mean_diff": -3.1292408333333332,
+        "ci": [
+          -3.419705,
+          -2.8384658333333332
+        ],
+        "share_treatment_lower": 0.35083333333333333
+      },
+      "rework_steps": {
+        "mean_diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "share_treatment_lower": 0.0
+      }
+    }
+  ],
+  "duration_s": 12.44,
+  "result_hash": "0b6456147a05bc17df83d6d3813304cd2da7769673b6d77bbaaf13f8a72e85c3",
+  "note": "SIMULATED RESULTS. Not evaluated with human participants."
+}

@@ -1,0 +1,49 @@
+{
+  "name": "adaptive",
+  "description": "Adaptive AgentPause vs the same model without timing (myopic_voi), plus a safety-floor variant.",
+  "policies": [
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "user_customized",
+      "config": {},
+      "preferences": {
+        "profile": "balanced",
+        "ask_before_irreversible": true
+      },
+      "parameters": {},
+      "ablate": [],
+      "label": "adaptive+irreversible_floor"
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 200,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 500
+}

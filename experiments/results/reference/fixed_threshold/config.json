@@ -1,0 +1,72 @@
+{
+  "name": "fixed_threshold",
+  "description": "risk = severity \u00d7 irreversibility \u2265 \u03c4, for several \u03c4.",
+  "policies": [
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.15
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.15"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.25
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.25"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.35
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.35"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.5
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.50"
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.65
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": "fixed_threshold@0.65"
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 200,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 500
+}

@@ -1,0 +1,101 @@
+{
+  "name": "compare_policies",
+  "description": "Core study conditions (A\u2013E) plus additional baselines on all six scenarios.",
+  "policies": [
+    {
+      "name": "full_autonomy",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "always_confirm",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "fixed_threshold",
+      "config": {
+        "threshold": 0.35
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "rule_based",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "confidence_threshold",
+      "config": {
+        "threshold": 0.8
+      },
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "myopic_voi",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "user_customized",
+      "config": {},
+      "preferences": {
+        "profile": "balanced",
+        "ask_before_irreversible": true
+      },
+      "parameters": {},
+      "ablate": [],
+      "label": "user_customized"
+    },
+    {
+      "name": "learned",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 200,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 1000
+}

@@ -1,0 +1,63 @@
+{
+  "id": "agentpause_post_task",
+  "name": "AgentPause post-task probe",
+  "citation": "AgentPause project (2026). Ad-hoc items for piloting; NOT a validated instrument.",
+  "doi": null,
+  "source_url": null,
+  "license": "MIT (items written for this project)",
+  "redistributable": true,
+  "validated": false,
+  "construct": "perceived control, interruption appropriateness, understanding, trust (single items)",
+  "when": "post_task",
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 7,
+    "min_label": "Strongly disagree",
+    "max_label": "Strongly agree"
+  },
+  "items": [
+    {
+      "id": "control",
+      "text": "I felt in control of what the agent did.",
+      "subscale": "control"
+    },
+    {
+      "id": "timing",
+      "text": "The agent asked for my input at appropriate moments.",
+      "subscale": "timing"
+    },
+    {
+      "id": "earlier_later",
+      "text": "I would rather have been asked earlier or later than I was.",
+      "subscale": "timing",
+      "reverse": true
+    },
+    {
+      "id": "annoyance",
+      "text": "The interruptions were annoying.",
+      "subscale": "annoyance",
+      "reverse": true
+    },
+    {
+      "id": "understanding",
+      "text": "I understood why the agent asked me what it asked.",
+      "subscale": "understanding"
+    },
+    {
+      "id": "trust",
+      "text": "I would trust this agent to act on my behalf in similar tasks.",
+      "subscale": "trust"
+    },
+    {
+      "id": "responsibility",
+      "text": "I feel responsible for the outcome of this task.",
+      "subscale": "agency"
+    }
+  ],
+  "scoring": {
+    "method": "mean",
+    "subscales": true
+  },
+  "notes": "Single-item measures for piloting and manipulation checks. Pre-register them, report them as non-validated, and pair them with a validated instrument of your choice (see docs/experiments.md)."
+}

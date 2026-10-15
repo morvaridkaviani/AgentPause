@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentpause-simulator"
+version = "0.1.0"
+description = "Deterministic agent scenarios, a simulated user, and an experiment framework for studying human intervention timing."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Morvarid Kaviani" }, { name = "AgentPause contributors" }]
+dependencies = ["agentpause-toolkit==0.1.0"]
+
+[project.urls]
+Repository = "https://github.com/morvaridkaviani/AgentPause"
+Documentation = "https://github.com/morvaridkaviani/AgentPause/tree/main/docs"
+Issues = "https://github.com/morvaridkaviani/AgentPause/issues"
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.8"]
+
+[project.scripts]
+agentpause-sim = "agentpause_sim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agentpause_sim = ["scenarios/*.json", "py.typed"]

@@ -1,0 +1,38 @@
+{
+  "name": "baseline",
+  "description": "Full autonomy (AutoGen NEVER / OpenHands NeverConfirm) vs always confirm.",
+  "policies": [
+    {
+      "name": "full_autonomy",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "always_confirm",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 200,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 500
+}

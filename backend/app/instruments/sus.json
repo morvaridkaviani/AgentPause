@@ -1,0 +1,36 @@
+{
+  "id": "sus",
+  "name": "System Usability Scale (SUS)",
+  "citation": "Brooke, J. (1996). SUS: A 'quick and dirty' usability scale. In P. W. Jordan et al. (Eds.), Usability Evaluation in Industry (pp. 189–194). Taylor & Francis.",
+  "doi": null,
+  "source_url": "https://hell.meiert.org/core/pdf/sus.pdf",
+  "license": "Free to use with acknowledgement of the source (author's statement); form © Digital Equipment Corporation 1986. Item text is NOT bundled: supply it locally (INSTRUMENTS_LOCAL_DIR/sus.json).",
+  "redistributable": false,
+  "validated": true,
+  "construct": "usability",
+  "when": "post_task",
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 5,
+    "min_label": "Strongly disagree",
+    "max_label": "Strongly agree"
+  },
+  "item_ids": [
+    "q1",
+    "q2",
+    "q3",
+    "q4",
+    "q5",
+    "q6",
+    "q7",
+    "q8",
+    "q9",
+    "q10"
+  ],
+  "items": [],
+  "scoring": {
+    "method": "sus"
+  },
+  "notes": "Scoring is implemented (odd items: score − 1; even items: 5 − score; sum × 2.5)."
+}

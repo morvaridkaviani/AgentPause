@@ -1,0 +1,111 @@
+# Harm-vs-interruption frontiers: every parameterized policy across its cost/threshold. SIMULATED.
+# Comparing whole frontiers avoids cherry-picking one operating point per policy.
+name = "frontier"
+description = "Sweeps of interruption cost (adaptive, myopic) and thresholds (fixed, confidence)."
+scenarios = ["all"]
+episodes = 150
+seed = 314159
+bootstrap = 0
+
+[[policies]]
+name = "full_autonomy"
+[[policies]]
+name = "always_confirm"
+[[policies]]
+name = "rule_based"
+
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.005"
+parameters = { interruption_cost = 0.005 }
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.01"
+parameters = { interruption_cost = 0.01 }
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.015"
+parameters = { interruption_cost = 0.015 }
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.02"
+parameters = { interruption_cost = 0.02 }
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.03"
+parameters = { interruption_cost = 0.03 }
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.05"
+parameters = { interruption_cost = 0.05 }
+[[policies]]
+name = "adaptive"
+label = "adaptive@0.08"
+parameters = { interruption_cost = 0.08 }
+
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.005"
+parameters = { interruption_cost = 0.005 }
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.01"
+parameters = { interruption_cost = 0.01 }
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.015"
+parameters = { interruption_cost = 0.015 }
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.02"
+parameters = { interruption_cost = 0.02 }
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.03"
+parameters = { interruption_cost = 0.03 }
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.05"
+parameters = { interruption_cost = 0.05 }
+[[policies]]
+name = "myopic_voi"
+label = "myopic_voi@0.08"
+parameters = { interruption_cost = 0.08 }
+
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.10"
+config = { threshold = 0.10 }
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.15"
+config = { threshold = 0.15 }
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.25"
+config = { threshold = 0.25 }
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.35"
+config = { threshold = 0.35 }
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.50"
+config = { threshold = 0.5 }
+
+[[policies]]
+name = "confidence_threshold"
+label = "confidence_threshold@0.70"
+config = { threshold = 0.7 }
+[[policies]]
+name = "confidence_threshold"
+label = "confidence_threshold@0.80"
+config = { threshold = 0.8 }
+[[policies]]
+name = "confidence_threshold"
+label = "confidence_threshold@0.85"
+config = { threshold = 0.85 }
+[[policies]]
+name = "confidence_threshold"
+label = "confidence_threshold@0.90"
+config = { threshold = 0.9 }

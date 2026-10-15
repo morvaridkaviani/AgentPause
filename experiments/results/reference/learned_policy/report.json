@@ -1,0 +1,57 @@
+{
+  "status": "EXPERIMENTAL: trained on simulated data; not evidence about real users",
+  "features": [
+    "p_agent_error",
+    "p_intent_error",
+    "severity",
+    "irreversibility",
+    "error_cost",
+    "expected_harm",
+    "cognitive_load",
+    "not_breakpoint",
+    "habituation",
+    "external",
+    "task_progress"
+  ],
+  "label": "intervention_needed (simulator ground truth: visible mistake or wrong assumption at this step)",
+  "train": {
+    "seed": 1001,
+    "episodes_per_scenario": 120,
+    "rows": 5400,
+    "positives": 1465
+  },
+  "test": {
+    "seed": 2002,
+    "episodes_per_scenario": 60,
+    "rows": 2700,
+    "positives": 783
+  },
+  "leave_one_scenario_out_auc": {
+    "calendar": 0.7823834591041869,
+    "email": 0.788026410148619,
+    "files": 0.8161346481387207,
+    "research": 0.752820987654321,
+    "shopping": 0.862502024291498,
+    "travel": 0.6795110271672772
+  },
+  "test_auc": 0.7799170026069097,
+  "coefficients": {
+    "p_agent_error": 0.904195301768183,
+    "p_intent_error": 0.8830433527520181,
+    "severity": -0.5385310582867198,
+    "irreversibility": 0.05085957680481833,
+    "error_cost": 0.7979113798014439,
+    "expected_harm": -0.3296117739725099,
+    "cognitive_load": -0.04233563960657093,
+    "not_breakpoint": -0.012932221906894725,
+    "habituation": 0.0,
+    "external": -0.09125120239406057,
+    "task_progress": 0.01646324262970591
+  },
+  "hyperparameters": {
+    "l2": 0.001,
+    "iterations": 1500,
+    "learning_rate": 0.5,
+    "class_balanced": true
+  }
+}

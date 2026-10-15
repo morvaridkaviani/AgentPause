@@ -1,0 +1,120 @@
+{
+  "name": "ablation",
+  "description": "Adaptive policy with one signal hidden (defaults used instead).",
+  "policies": [
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "agent_confidence"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "intent"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "severity"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "recoverability"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "at_breakpoint"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "cognitive_load"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "habituation"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "history"
+      ],
+      "label": null
+    },
+    {
+      "name": "adaptive",
+      "config": {},
+      "preferences": null,
+      "parameters": {},
+      "ablate": [
+        "plan"
+      ],
+      "label": null
+    }
+  ],
+  "scenarios": [
+    "all"
+  ],
+  "episodes": 200,
+  "seed": 314159,
+  "conditions": [
+    {
+      "name": "default",
+      "user": {},
+      "engine": {},
+      "parameters": {}
+    }
+  ],
+  "explain": "none",
+  "keep_records": true,
+  "bootstrap": 500
+}

@@ -1,0 +1,17 @@
+**/node_modules
+**/.next
+**/__pycache__
+**/*.egg-info
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+.venv
+.git
+*.db
+data
+experiments/results
+experiments/figures
+sdk/typescript/dist
+.env
+.env.*
+!.env.example

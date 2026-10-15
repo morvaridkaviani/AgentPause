@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: >-
+  If you use AgentPause in your research, please cite it as below. Results produced
+  with the simulator are simulated; AgentPause has not yet been evaluated with human participants.
+type: software
+title: "AgentPause: Research Infrastructure for Adaptive Human Intervention Timing in AI Agents"
+abstract: >-
+  An open-source toolkit for studying when an AI agent should continue autonomously and
+  when it should pause and involve a human. It provides a decision engine with baseline and
+  adaptive intervention policies, explanations of why and when an intervention happens,
+  a deterministic simulator with ground-truth labels, experiment and study tooling,
+  a REST API, SDKs, and a web interface.
+authors:
+  - family-names: Kaviani
+    given-names: Morvarid
+  - name: AgentPause contributors
+version: 0.1.0
+repository-code: "https://github.com/morvaridkaviani/AgentPause"
+url: "https://github.com/morvaridkaviani/AgentPause"
+date-released: "2026-10-15"
+license: MIT
+keywords:
+  - human-AI interaction
+  - mixed-initiative interaction
+  - AI agents
+  - interruption management
+  - human oversight
+  - explainable AI

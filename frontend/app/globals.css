@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens. Light and dark values are chosen separately (not inverted). The categorical
+ * colours follow the validated reference palette order, so the five decision types can appear
+ * side by side in stacked bars and grids. Status colours are reserved for good/warning/
+ * serious/critical, and always come with an icon and a label.
+ */
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f3f2ee;
+  --surface-3: #ebeae4;
+  --border: rgba(11, 11, 11, 0.1);
+  --border-strong: rgba(11, 11, 11, 0.2);
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #6f6e69;
+  --accent: #2a78d6;
+  --accent-strong: #1c5cab;
+  --accent-soft: #e6effb;
+  --accent-ink: #ffffff;
+  --focus: #2a78d6;
+
+  --d-continue: #2a78d6;
+  --d-defer: #eb6834;
+  --d-clarify: #1baf7a;
+  --d-ask: #eda100;
+  --d-block: #e87ba4;
+  --d-skipped: #898781;
+
+  --good: #0ca30c;
+  --good-ink: #006300;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --chart-muted: #898781;
+  --shadow: 0 1px 2px rgba(11, 11, 11, 0.05), 0 4px 16px rgba(11, 11, 11, 0.04);
+}
+
+.dark {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #222220;
+  --surface-3: #2c2c2a;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --ink-3: #a3a29a;
+  --accent: #3987e5;
+  --accent-strong: #6da7ec;
+  --accent-soft: #15253b;
+  --accent-ink: #0b0b0b;
+  --focus: #6da7ec;
+
+  --d-continue: #3987e5;
+  --d-defer: #d95926;
+  --d-clarify: #199e70;
+  --d-ask: #c98500;
+  --d-block: #d55181;
+  --d-skipped: #898781;
+
+  --good: #0ca30c;
+  --good-ink: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #e66767;
+
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --chart-muted: #898781;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+@theme inline {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-good: var(--good);
+  --color-good-ink: var(--good-ink);
+  --color-warning: var(--warning);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --color-d-continue: var(--d-continue);
+  --color-d-defer: var(--d-defer);
+  --color-d-clarify: var(--d-clarify);
+  --color-d-ask: var(--d-ask);
+  --color-d-block: var(--d-block);
+  --color-d-skipped: var(--d-skipped);
+
+  --shadow-card: var(--shadow);
+}
+
+html {
+  background: var(--page);
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tinted backgrounds for decision chips: a 12% wash of the decision hue. */
+.tint-continue { background: color-mix(in oklab, var(--d-continue) 12%, transparent); }
+.tint-defer { background: color-mix(in oklab, var(--d-defer) 12%, transparent); }
+.tint-clarify { background: color-mix(in oklab, var(--d-clarify) 14%, transparent); }
+.tint-ask { background: color-mix(in oklab, var(--d-ask) 16%, transparent); }
+.tint-block { background: color-mix(in oklab, var(--d-block) 16%, transparent); }
+.tint-skipped { background: color-mix(in oklab, var(--d-skipped) 12%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-in {
+  animation: slide-in 220ms ease-out both;
+}

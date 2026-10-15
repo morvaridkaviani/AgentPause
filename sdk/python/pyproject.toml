@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# NOTE: the PyPI name "agentpause" is taken by an unrelated project (a rate-limit
+# scheduler). The import name stays `agentpause`; the distribution is published as
+# `agentpause-toolkit`. See docs/getting_started.md ("Package name").
+name = "agentpause-toolkit"
+version = "0.1.0"
+description = "Adaptive human intervention timing for AI agents: an inspectable decision engine, explanations, and SDK."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Morvarid Kaviani" }, { name = "AgentPause contributors" }]
+keywords = ["human-in-the-loop", "ai-agents", "hci", "human-ai-interaction", "explainability", "interruption"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/morvaridkaviani/AgentPause"
+Documentation = "https://github.com/morvaridkaviani/AgentPause/tree/main/docs"
+Issues = "https://github.com/morvaridkaviani/AgentPause/issues"
+
+[project.scripts]
+agentpause-claude-hook = "agentpause.integrations.claude_code:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agentpause = ["py.typed", "policies/*.json"]

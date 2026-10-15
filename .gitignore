@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+coverage/
+
+# Local data (never commit study data)
+*.db
+*.sqlite
+*.sqlite3
+data/
+backend/data/
+experiments/results/*
+!experiments/results/.gitkeep
+!experiments/results/reference/
+experiments/figures/*
+!experiments/figures/.gitkeep
+!experiments/figures/reference/
+
+# Licensed questionnaire items supplied locally (never commit them)
+instruments-local/
+
+# Env
+.env
+.env.local
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,288 @@
+{
+  "id": "calendar",
+  "name": "Calendar scheduling",
+  "agent_name": "Calendar Agent",
+  "domain": "calendar",
+  "icon": "calendar",
+  "description": "Schedule a meeting with two colleagues and share the agenda. Invitations and sharing reach other people.",
+  "goal": "Set up a one-hour project sync with Maria and Jonas next week, preferably in the morning, and share the agenda with them.",
+  "brief": "Next week means {week}. Jonas works from {jonas_timezone}. The agenda is {agenda_doc}. About announcing it in the team channel: {announce}.",
+  "assumptions": [
+    {
+      "id": "week",
+      "description": "'next week' means 20–24 October",
+      "kind": "input",
+      "confidence": 0.9,
+      "agent_value": "20–24 Oct",
+      "alternatives": [
+        "27–31 Oct"
+      ],
+      "introduced_at": "check_availability",
+      "if_wrong": "The meeting would be booked in the wrong week."
+    },
+    {
+      "id": "jonas_timezone",
+      "description": "Jonas works in your timezone (Berlin, CET)",
+      "kind": "context",
+      "confidence": 0.72,
+      "agent_value": "Berlin (CET)",
+      "alternatives": [
+        "New York (EST)"
+      ],
+      "introduced_at": "propose_slot",
+      "if_wrong": "A morning slot for you would be 3–4 a.m. for Jonas."
+    },
+    {
+      "id": "agenda_doc",
+      "description": "the agenda is the document 'Project sync – agenda v2'",
+      "kind": "input",
+      "confidence": 0.75,
+      "agent_value": "'Project sync – agenda v2'",
+      "alternatives": [
+        "'Project sync – agenda (draft, private)'"
+      ],
+      "introduced_at": "share_agenda",
+      "if_wrong": "A private draft would be shared with colleagues."
+    },
+    {
+      "id": "announce",
+      "description": "you want the meeting announced in the #project channel",
+      "kind": "goal",
+      "confidence": 0.55,
+      "agent_value": "Announce it in #project",
+      "alternatives": [
+        "Do not post anything"
+      ],
+      "introduced_at": "post_in_channel",
+      "if_wrong": "A message you did not ask for would go to 40 people.",
+      "severity": 0.2
+    }
+  ],
+  "steps": [
+    {
+      "id": "check_availability",
+      "label": "Check availability",
+      "description": "Check free/busy for you, Maria, and Jonas during {week}",
+      "subtask": "Find a slot",
+      "category": "read_only",
+      "agent_confidence": 0.96,
+      "depends_on": [
+        "week"
+      ],
+      "breakpoint": true,
+      "load": 0.4,
+      "duration_s": 5,
+      "consequence": "No side effects",
+      "undo": "Nothing to undo",
+      "what_could_go_wrong": "Nothing.",
+      "preview": {
+        "People": "You, Maria Keller, Jonas Weber",
+        "Range": "{week}, mornings"
+      }
+    },
+    {
+      "id": "propose_slot",
+      "label": "Pick a time slot",
+      "description": "Pick Tuesday 09:00–10:00 (your time; Jonas: {jonas_timezone})",
+      "subtask": "Find a slot",
+      "category": "internal_draft",
+      "severity": 0.1,
+      "recoverability": 1.0,
+      "agent_confidence": 0.88,
+      "depends_on": [
+        "week",
+        "jonas_timezone"
+      ],
+      "breakpoint": false,
+      "load": 0.5,
+      "duration_s": 4,
+      "consequence": "A tentative slot is selected",
+      "undo": "Pick another slot",
+      "what_could_go_wrong": "The slot could be unreasonable for someone.",
+      "preview": {
+        "Slot": "Tue, 09:00–10:00 CET",
+        "Jonas's local time": "per {jonas_timezone}"
+      }
+    },
+    {
+      "id": "book_room",
+      "label": "Book meeting room",
+      "description": "Book room 'Lovelace' (6 seats) for the slot",
+      "subtask": "Logistics",
+      "category": "scheduling",
+      "severity": 0.15,
+      "recoverability": 0.95,
+      "agent_confidence": 0.93,
+      "depends_on": [
+        "week"
+      ],
+      "breakpoint": false,
+      "load": 0.4,
+      "duration_s": 3,
+      "consequence": "Room reserved",
+      "undo": "Release the room",
+      "what_could_go_wrong": "The room could be booked for the wrong time.",
+      "external": false,
+      "preview": {
+        "Room": "Lovelace (6 seats, video)",
+        "When": "Tue {week}, 09:00–10:00"
+      }
+    },
+    {
+      "id": "draft_event",
+      "label": "Draft calendar event",
+      "description": "Draft the event 'Project sync' with video link",
+      "subtask": "Invite",
+      "category": "internal_draft",
+      "agent_confidence": 0.95,
+      "depends_on": [],
+      "breakpoint": true,
+      "load": 0.3,
+      "duration_s": 3,
+      "consequence": "Draft event, not yet sent",
+      "undo": "Delete the draft",
+      "what_could_go_wrong": "Nothing.",
+      "preview": {
+        "Title": "Project sync",
+        "Duration": "60 min",
+        "Video": "meet.example/proj-sync"
+      }
+    },
+    {
+      "id": "send_invites",
+      "label": "Send invitations",
+      "description": "Send invitations to Maria Keller and Jonas Weber (simulated)",
+      "subtask": "Invite",
+      "category": "scheduling",
+      "severity": 0.35,
+      "recoverability": 0.35,
+      "agent_confidence": 0.89,
+      "depends_on": [
+        "week",
+        "jonas_timezone"
+      ],
+      "breakpoint": false,
+      "load": 0.35,
+      "duration_s": 3,
+      "consequence": "Invitations reach two colleagues (simulated)",
+      "undo": "Can be cancelled, but everyone will already have seen it",
+      "what_could_go_wrong": "The wrong people or an unreasonable time reach your colleagues.",
+      "preview": {
+        "Invitees": "maria.keller@corp.example, jonas.weber@corp.example",
+        "When": "Tue {week}, 09:00 CET ({jonas_timezone})"
+      },
+      "alternatives": [
+        "Send a 'hold the date' instead",
+        "Let me review the draft first"
+      ]
+    },
+    {
+      "id": "share_agenda",
+      "label": "Share agenda",
+      "description": "Share {agenda_doc} with the invitees (comment access)",
+      "subtask": "Invite",
+      "category": "data_sharing",
+      "severity": 0.4,
+      "recoverability": 0.4,
+      "agent_confidence": 0.88,
+      "depends_on": [
+        "agenda_doc"
+      ],
+      "breakpoint": true,
+      "load": 0.3,
+      "duration_s": 3,
+      "consequence": "Document shared with colleagues",
+      "undo": "Access can be revoked, but they may already have read it",
+      "what_could_go_wrong": "A private document could be shared, or with too much access.",
+      "preview": {
+        "Document": "{agenda_doc}",
+        "Shared with": "Maria, Jonas",
+        "Access": "Comment"
+      }
+    },
+    {
+      "id": "post_in_channel",
+      "label": "Announce in #project",
+      "description": "Post the meeting link in the #project channel (40 members, simulated)",
+      "subtask": "Wrap up",
+      "category": "external_communication",
+      "severity": 0.2,
+      "recoverability": 0.3,
+      "agent_confidence": 0.9,
+      "depends_on": [
+        "announce"
+      ],
+      "breakpoint": false,
+      "load": 0.3,
+      "duration_s": 2,
+      "consequence": "A message visible to 40 people (simulated)",
+      "undo": "Can be deleted, but people may have seen it",
+      "what_could_go_wrong": "An unrequested announcement.",
+      "preview": {
+        "Channel": "#project (40 members)",
+        "Message": "Project sync on Tue 09:00 – link inside"
+      },
+      "skip_if": {
+        "announce": "Do not post anything"
+      }
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "wrong_maria",
+      "step": "send_invites",
+      "description": "The directory search picked 'Maria Lopez' (Sales) instead of Maria Keller.",
+      "probability": 0.12,
+      "severity": 0.35,
+      "recoverability": 0.35,
+      "visible_at": [
+        "send_invites"
+      ],
+      "harm_at": "send_invites",
+      "preview": {
+        "send_invites": {
+          "Invitees": "maria.lopez@corp.example, jonas.weber@corp.example"
+        }
+      }
+    },
+    {
+      "id": "org_wide_access",
+      "step": "share_agenda",
+      "description": "The share setting is 'Anyone in the organization can edit'.",
+      "probability": 0.1,
+      "severity": 0.45,
+      "recoverability": 0.4,
+      "visible_at": [
+        "share_agenda"
+      ],
+      "harm_at": "share_agenda",
+      "preview": {
+        "share_agenda": {
+          "Shared with": "Everyone at corp.example",
+          "Access": "Edit"
+        }
+      }
+    },
+    {
+      "id": "dentist_overlap",
+      "step": "propose_slot",
+      "description": "The slot overlaps your private dentist appointment (Tue 09:30).",
+      "probability": 0.1,
+      "severity": 0.3,
+      "recoverability": 0.35,
+      "visible_at": [
+        "propose_slot",
+        "send_invites"
+      ],
+      "harm_at": "send_invites",
+      "preview": {
+        "propose_slot": {
+          "Slot": "Tue, 09:00–10:00 CET (overlaps 'Dentist', 09:30)"
+        },
+        "send_invites": {
+          "When": "Tue {week}, 09:00 CET (overlaps your 'Dentist' at 09:30)"
+        }
+      }
+    }
+  ]
+}

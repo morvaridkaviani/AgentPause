@@ -1,0 +1,31 @@
+# Fixed risk-threshold policy across thresholds τ (OpenHands ConfirmRisky-style). SIMULATED.
+name = "fixed_threshold"
+description = "risk = severity × irreversibility ≥ τ, for several τ."
+scenarios = ["all"]
+episodes = 200
+seed = 314159
+
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.15"
+config = { threshold = 0.15 }
+
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.25"
+config = { threshold = 0.25 }
+
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.35"
+config = { threshold = 0.35 }
+
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.50"
+config = { threshold = 0.5 }
+
+[[policies]]
+name = "fixed_threshold"
+label = "fixed_threshold@0.65"
+config = { threshold = 0.65 }

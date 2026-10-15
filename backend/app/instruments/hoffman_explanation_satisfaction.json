@@ -1,0 +1,24 @@
+{
+  "id": "hoffman_explanation_satisfaction",
+  "name": "Explanation Satisfaction Scale (Hoffman et al. 2023)",
+  "citation": "Hoffman, R. R., Mueller, S. T., Klein, G., & Litman, J. (2023). Measures for explainable AI. Frontiers in Computer Science, 5.",
+  "doi": "10.3389/fcomp.2023.1096257",
+  "source_url": "https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2023.1096257/full",
+  "license": "CC BY 4.0 (2023 article). Use the 2023 wording only. Place items in INSTRUMENTS_LOCAL_DIR/hoffman_explanation_satisfaction.json.",
+  "redistributable": false,
+  "validated": true,
+  "construct": "explanation satisfaction",
+  "when": "final",
+  "scale": {
+    "type": "likert",
+    "min": 1,
+    "max": 5,
+    "min_label": "Strongly disagree",
+    "max_label": "Strongly agree"
+  },
+  "items": [],
+  "scoring": {
+    "method": "mean"
+  },
+  "notes": "Check the exact item count in the 2023 article (Table 3) before use."
+}

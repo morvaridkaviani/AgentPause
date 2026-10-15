@@ -1,0 +1,42 @@
+{
+  "name": "@agentpause/sdk",
+  "version": "0.1.0",
+  "description": "Typed TypeScript/JavaScript client for the AgentPause REST API (adaptive human intervention timing for AI agents).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morvaridkaviani/AgentPause.git",
+    "directory": "sdk/typescript"
+  },
+  "homepage": "https://github.com/morvaridkaviani/AgentPause/tree/main/sdk/typescript#readme",
+  "bugs": {
+    "url": "https://github.com/morvaridkaviani/AgentPause/issues"
+  }
+}

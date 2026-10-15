@@ -1,0 +1,44 @@
+# Robustness to simulator assumptions and model misspecification. SIMULATED.
+# The adaptive policy always assumes its default parameters. Only the simulated world changes.
+name = "sensitivity"
+description = "Agent calibration, upstream-mistake awareness, and user habituation varied; policies fixed."
+scenarios = ["all"]
+episodes = 150
+seed = 314159
+bootstrap = 300
+
+[[policies]]
+name = "always_confirm"
+[[policies]]
+name = "rule_based"
+[[policies]]
+name = "myopic_voi"
+[[policies]]
+name = "adaptive"
+
+[[conditions]]
+name = "default"
+
+[[conditions]]
+name = "uncalibrated_agent"
+engine = { calibration = 0.0, propagated_calibration = 0.0 }
+
+[[conditions]]
+name = "unaware_of_upstream_mistakes"
+engine = { propagated_calibration = 0.0 }
+
+[[conditions]]
+name = "well_calibrated_agent"
+engine = { calibration = 1.0, propagated_calibration = 0.7 }
+
+[[conditions]]
+name = "fast_habituating_user"
+user = { habituation_rate = 0.35 }
+
+[[conditions]]
+name = "non_habituating_user"
+user = { habituation_rate = 0.0 }
+
+[[conditions]]
+name = "careless_user"
+user = { approval_vigilance = 0.6, clarification_accuracy = 0.8 }

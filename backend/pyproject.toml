@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentpause-server"
+version = "0.1.0"
+description = "REST API, persistence, experiment runner, and study mode for AgentPause."
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Morvarid Kaviani" }, { name = "AgentPause contributors" }]
+dependencies = [
+  "agentpause-toolkit==0.1.0",
+  "agentpause-simulator==0.1.0",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "sqlalchemy>=2.0",
+]
+
+[project.urls]
+Repository = "https://github.com/morvaridkaviani/AgentPause"
+Documentation = "https://github.com/morvaridkaviani/AgentPause/tree/main/docs"
+Issues = "https://github.com/morvaridkaviani/AgentPause/issues"
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2"]
+dev = ["pytest>=8", "httpx2>=2.10", "pytest-cov>=5"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+app = ["instruments/*.json"]

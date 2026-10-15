@@ -1,0 +1,52 @@
+{
+  "id": "nasa_tlx_raw",
+  "name": "NASA Task Load Index – Raw TLX",
+  "citation": "Hart, S. G., & Staveland, L. E. (1988). Development of NASA-TLX (Task Load Index): Results of empirical and theoretical research. In P. A. Hancock & N. Meshkati (Eds.), Human Mental Workload (pp. 139–183). North-Holland. Raw (unweighted) scoring: Hart, S. G. (2006). NASA-Task Load Index (NASA-TLX); 20 years later. Proc. HFES Annual Meeting, 50(9), 904–908.",
+  "doi": "10.1016/S0166-4115(08)62386-9",
+  "source_url": "https://www.nasa.gov/human-systems-integration-division/nasa-task-load-index-tlx/",
+  "license": "NASA states that the TLX is 'open source' and may be used and modified without permission. No NASA endorsement is implied.",
+  "redistributable": true,
+  "validated": true,
+  "construct": "workload",
+  "when": "post_task",
+  "scale": {
+    "type": "slider",
+    "min": 0,
+    "max": 100,
+    "step": 5,
+    "min_label": "Very low",
+    "max_label": "Very high"
+  },
+  "items": [
+    {
+      "id": "mental",
+      "text": "Mental Demand — How mentally demanding was the task?"
+    },
+    {
+      "id": "physical",
+      "text": "Physical Demand — How physically demanding was the task?"
+    },
+    {
+      "id": "temporal",
+      "text": "Temporal Demand — How hurried or rushed was the pace of the task?"
+    },
+    {
+      "id": "performance",
+      "text": "Performance — How successful were you in accomplishing what you were asked to do?",
+      "min_label": "Perfect",
+      "max_label": "Failure"
+    },
+    {
+      "id": "effort",
+      "text": "Effort — How hard did you have to work to accomplish your level of performance?"
+    },
+    {
+      "id": "frustration",
+      "text": "Frustration — How insecure, discouraged, irritated, stressed, and annoyed were you?"
+    }
+  ],
+  "scoring": {
+    "method": "mean"
+  },
+  "notes": "Raw TLX = unweighted mean of the six subscales (0–100). Verify wording against the official NASA form before a study. The frustration subscale is a partial proxy for interruption annoyance."
+}

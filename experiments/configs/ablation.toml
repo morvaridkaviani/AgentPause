@@ -1,0 +1,38 @@
+# Signal ablation for RQ2: remove one signal at a time from the adaptive policy. SIMULATED.
+# Caveat: this measures each signal's contribution UNDER THE SIMULATOR'S ASSUMPTIONS.
+name = "ablation"
+description = "Adaptive policy with one signal hidden (defaults used instead)."
+scenarios = ["all"]
+episodes = 200
+seed = 314159
+
+[[policies]]
+name = "adaptive"
+
+[[policies]]
+name = "adaptive"
+ablate = ["agent_confidence"]
+[[policies]]
+name = "adaptive"
+ablate = ["intent"]
+[[policies]]
+name = "adaptive"
+ablate = ["severity"]
+[[policies]]
+name = "adaptive"
+ablate = ["recoverability"]
+[[policies]]
+name = "adaptive"
+ablate = ["at_breakpoint"]
+[[policies]]
+name = "adaptive"
+ablate = ["cognitive_load"]
+[[policies]]
+name = "adaptive"
+ablate = ["habituation"]
+[[policies]]
+name = "adaptive"
+ablate = ["history"]
+[[policies]]
+name = "adaptive"
+ablate = ["plan"]

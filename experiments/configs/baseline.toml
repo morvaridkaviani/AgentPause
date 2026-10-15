@@ -1,0 +1,12 @@
+# Fixed baselines only: never ask vs. always confirm. SIMULATED.
+name = "baseline"
+description = "Full autonomy (AutoGen NEVER / OpenHands NeverConfirm) vs always confirm."
+scenarios = ["all"]
+episodes = 200
+seed = 314159
+
+[[policies]]
+name = "full_autonomy"
+
+[[policies]]
+name = "always_confirm"

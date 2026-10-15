@@ -1,0 +1,53 @@
+# Workspace-level tooling configuration for the AgentPause monorepo.
+#
+# The installable Python packages live in their own folders:
+#   sdk/python  → agentpause-toolkit   (import: agentpause)      zero dependencies
+#   simulator   → agentpause-simulator (import: agentpause_sim)
+#   backend     → agentpause-server    (import: app)
+# Install everything for development with:  pip install -r requirements-dev.txt
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["frontend", "sdk/typescript", "node_modules", ".venv"]
+
+[tool.ruff.format]
+# Code blocks in Markdown docs keep their hand-aligned comments.
+exclude = ["*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "C4", "PIE"]
+ignore = [
+  "E501",    # long lines are wrapped by the formatter where it matters; tables in tests stay readable
+  "RUF001",  # we intentionally use typographic characters (×, –, →) in user-facing text
+  "RUF002",
+  "RUF003",
+  "SIM108",  # explicit if/else reads better in policy code
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["agentpause", "agentpause_sim", "app"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["B011", "SIM300"]
+"experiments/*.py" = ["E402"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+mypy_path = ["sdk/python/src", "simulator/src", "backend"]
+explicit_package_bases = true
+packages = ["agentpause", "agentpause_sim", "app"]
+
+[[tool.mypy.overrides]]
+module = ["matplotlib.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["sdk/python/tests", "simulator/tests", "backend/tests", "tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["agentpause", "agentpause_sim", "app"]
+omit = ["*/tests/*"]

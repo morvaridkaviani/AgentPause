@@ -1,0 +1,24 @@
+{
+  "name": "agentpause-monorepo",
+  "private": true,
+  "description": "AgentPause: research infrastructure for adaptive human intervention timing in AI agents (JavaScript workspaces).",
+  "license": "MIT",
+  "workspaces": [
+    "frontend",
+    "sdk/typescript"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace frontend",
+    "build": "npm run build --workspace sdk/typescript && npm run build --workspace frontend",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morvaridkaviani/AgentPause.git"
+  }
+}

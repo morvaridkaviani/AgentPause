@@ -1,0 +1,9 @@
+{
+  "baseline": "f4dd2c5a658f957de23c5b22030d80ed51f4f3657777ee14a24e1f958eb6f26e",
+  "fixed_threshold": "e31ecea10b1adec351045dfc0f885a749d70bd562291d2f6221dde09221e27c4",
+  "adaptive": "16ad1deed0b7588b736feb169ecc2b31d8b3cd645547fc94c7a9972e980fbcf8",
+  "compare_policies": "4dd200db72a746b8dcc36edda98ef345537dbbdb3bb5732c3cea157478e5cdbc",
+  "frontier": "e69820a5d512b41f74c878b06695acc67b4779b5593c95263491015d3105a033",
+  "ablation": "f2967846b6a2e1a7f291db37f7622f4da6c590165ba4d47679dfc0cf0b9b59c9",
+  "sensitivity": "797924eee65eeac50934ab89fab3392c4c52f8c5fe55bbe9d21728cd47815da0"
+}
