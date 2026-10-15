@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/page";
 import { Callout } from "@/components/ui/feedback";
 import { ButtonLink, Card } from "@/components/ui/primitives";
-import { REPO_URL } from "@/lib/site";
+import { API_DOCS_URL, REPO_URL } from "@/lib/site";
 
 export const metadata: Metadata = { title: "AgentPause: when should an AI agent pause and ask?" };
 
@@ -118,7 +118,7 @@ export default function Home() {
             <code>{SDK}</code>
           </pre>
           <div className="mt-4 flex flex-wrap gap-3">
-            <a href="/docs" className="text-sm font-medium text-accent-strong hover:underline">
+            <a href={API_DOCS_URL} className="text-sm font-medium text-accent-strong hover:underline">
               REST API docs →
             </a>
             {repo ? (

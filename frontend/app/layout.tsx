@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+import { EngineBanner } from "@/components/layout/engine-banner";
 import { SiteFooter } from "@/components/layout/page";
 import { SiteHeader } from "@/components/layout/site-header";
 import { THEME_SCRIPT } from "@/components/layout/theme-script";
+import { STATIC_DEMO } from "@/lib/site";
 
 import "./globals.css";
 
@@ -28,6 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="min-h-screen">
         <SiteHeader />
+        {STATIC_DEMO ? <EngineBanner /> : null}
         <main id="main" className="pb-8">
           {children}
         </main>

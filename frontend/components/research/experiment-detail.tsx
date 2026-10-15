@@ -1,14 +1,16 @@
 "use client";
 
-import { Download } from "lucide-react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 import { MetricBars } from "@/components/charts/charts";
 import { Container, PageHeader } from "@/components/layout/page";
-import { ErrorState, SimulatedNote } from "@/components/ui/feedback";
+import { EmptyState, ErrorState, SimulatedNote } from "@/components/ui/feedback";
 import { Badge, ButtonLink, Skeleton } from "@/components/ui/primitives";
 import { Meter } from "@/components/ui/stat";
-import { api, downloadUrl } from "@/lib/api";
+import { DownloadButton } from "@/components/ui/download";
+import { api } from "@/lib/api";
 import { pct, policyLabel } from "@/lib/format";
 import type { Aggregate, Experiment } from "@/lib/types";
 
@@ -53,15 +55,15 @@ export function ExperimentDetail({ id }: { id: string }) {
         actions={
           experiment.status === "completed" ? (
             <>
-              <ButtonLink href={downloadUrl(`/experiments/${experiment.id}/export`, { table: "records", format: "csv" })} variant="secondary" icon={<Download className="size-4" aria-hidden />}>
+              <DownloadButton path={`/experiments/${experiment.id}/export`} params={{ table: "records", format: "csv" }} filename="agentpause-records.csv">
                 Decisions CSV
-              </ButtonLink>
-              <ButtonLink href={downloadUrl(`/experiments/${experiment.id}/export`, { table: "episodes", format: "csv" })} variant="secondary" icon={<Download className="size-4" aria-hidden />}>
+              </DownloadButton>
+              <DownloadButton path={`/experiments/${experiment.id}/export`} params={{ table: "episodes", format: "csv" }} filename="agentpause-episodes.csv">
                 Episodes CSV
-              </ButtonLink>
-              <ButtonLink href={downloadUrl(`/experiments/${experiment.id}/export`, { table: "summary" })} variant="ghost" icon={<Download className="size-4" aria-hidden />}>
+              </DownloadButton>
+              <DownloadButton path={`/experiments/${experiment.id}/export`} params={{ table: "summary" }} filename="agentpause-summary.json" variant="ghost">
                 Summary JSON
-              </ButtonLink>
+              </DownloadButton>
               <ButtonLink href={`/dashboard?experiment=${experiment.id}`}>Open in dashboard</ButtonLink>
             </>
           ) : null
@@ -110,4 +112,19 @@ export function ExperimentDetail({ id }: { id: string }) {
       </div>
     </Container>
   );
+}
+
+/** Reads the experiment id from the URL (?id=…). */
+export function ExperimentFromQuery() {
+  const id = useSearchParams().get("id");
+  if (!id) {
+    return (
+      <Container className="pt-10">
+        <EmptyState title="No experiment selected">
+          Open one from the <Link href="/experiments" className="font-medium text-accent-strong underline">experiments page</Link>.
+        </EmptyState>
+      </Container>
+    );
+  }
+  return <ExperimentDetail id={id} />;
 }

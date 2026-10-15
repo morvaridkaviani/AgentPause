@@ -13,8 +13,9 @@ An open-source research toolkit for studying **adaptive human intervention timin
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)
 ![Node 20.9+](https://img.shields.io/badge/node-20.9%2B-339933?logo=node.js&logoColor=white)
 ![Results: simulated](https://img.shields.io/badge/results-simulated-orange)
+[![Online demo](https://img.shields.io/badge/demo-online-2a78d6)](https://morvaridkaviani.github.io/AgentPause/)
 
-[**Quick start**](#5-quick-start) · [**Demo**](#6-demo) · [**Docs**](docs/) · [**Research**](research/) · [**Paper draft**](research/paper_draft.md)
+[**▶ Try it online**](https://morvaridkaviani.github.io/AgentPause/) · [**Quick start**](#5-quick-start) · [**Demo**](#6-demo) · [**Docs**](docs/) · [**Research**](research/) · [**Paper draft**](research/paper_draft.md)
 
 <br />
 
@@ -165,6 +166,10 @@ More detail: [docs/architecture.md](docs/architecture.md).
 
 ## 5. Quick start
 
+**🌍 Online, nothing to install:** **[https://morvaridkaviani.github.io/AgentPause](https://morvaridkaviani.github.io/AgentPause/)**
+
+The whole app runs in your browser: the Python engine runs as WebAssembly through [Pyodide](https://pyodide.org). The first visit downloads about 20 MB. Nothing is stored, and reloading starts fresh.
+
 **🐳 With Docker**
 
 ```bash
@@ -192,7 +197,7 @@ python examples/python_quickstart.py
 
 ## 6. Demo
 
-Open **http://localhost:3100/demo**, pick a task, choose how often the assistant should ask you, and press **Start**.
+Open the **[online demo](https://morvaridkaviani.github.io/AgentPause/demo/)** or **http://localhost:3100/demo**, pick a task, choose how often the assistant should ask you, and press **Start**.
 
 <table>
 <tr>

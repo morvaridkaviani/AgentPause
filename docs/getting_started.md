@@ -281,3 +281,31 @@ with `make lint` and `make typecheck`, which also run ESLint and `tsc`, or direc
 - [api.md](api.md): REST endpoints.
 - [experiments.md](experiments.md): simulator, experiment configs, reproducibility, and the human-study mode.
 - [research.md](research.md): research questions, contributions, and limitations.
+
+## Online demo (GitHub Pages)
+
+The web app is published at **https://morvaridkaviani.github.io/AgentPause/** by [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) on every push to `main`. It has no server: the real FastAPI backend runs in the visitor's browser.
+
+- Python runs as WebAssembly through [Pyodide](https://pyodide.org), loaded from the jsDelivr CDN.
+- It runs in a Web Worker ([`frontend/public/py-worker.js`](../frontend/public/py-worker.js)), with an in-memory SQLite database.
+- The web app passes each API request to the worker instead of the network ([`frontend/lib/browser-api.ts`](../frontend/lib/browser-api.ts)).
+
+Differences from a normal installation:
+
+- **Start-up.** The first visit downloads about 20 MB (the Python runtime and libraries). Later visits use the browser cache.
+- **Nothing persists.** Reloading the page starts with an empty database. Use exports to keep results.
+- **Inline experiments.** Browsers cannot start threads, so experiments run inline. Episode limits are lower (3,000 per experiment, 1,200 per comparison).
+- **No live API docs.** The Swagger/ReDoc pages are not available; see [api.md](api.md).
+
+To build and preview the static site locally:
+
+```bash
+python scripts/static_demo/build_bundle.py            # Python packages -> frontend/public/py/
+STATIC_EXPORT=1 NEXT_PUBLIC_STATIC_DEMO=1 NEXT_PUBLIC_BASE_PATH=/AgentPause \
+  npm run build --workspace frontend                  # static files -> frontend/out/
+mkdir -p /tmp/site && ln -sfn "$PWD/frontend/out" /tmp/site/AgentPause
+python3 -m http.server 8080 --directory /tmp/site     # http://localhost:8080/AgentPause/
+```
+
+For a fork, enable **Settings → Pages → Source: GitHub Actions**. The base path follows the repository name.
+

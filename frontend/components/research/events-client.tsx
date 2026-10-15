@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ChevronRight, Download, Radio } from "lucide-react";
+import { ChevronDown, ChevronRight, Radio } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { Fragment, useCallback, useEffect, useState } from "react";
 
@@ -8,8 +8,9 @@ import { DecisionBadge } from "@/components/decision/decision-badge";
 import { Container, PageHeader } from "@/components/layout/page";
 import { Select, TextInput, Toggle } from "@/components/ui/form";
 import { EmptyState, ErrorState } from "@/components/ui/feedback";
-import { Badge, Button, ButtonLink, Skeleton } from "@/components/ui/primitives";
-import { api, downloadUrl } from "@/lib/api";
+import { Badge, Button, Skeleton } from "@/components/ui/primitives";
+import { DownloadButton } from "@/components/ui/download";
+import { api } from "@/lib/api";
 import { DECISION_META, policyLabel, RESPONSE_LABEL } from "@/lib/format";
 import type { ApiEvent, DecisionType } from "@/lib/types";
 
@@ -70,9 +71,9 @@ export function EventsClient() {
         title="Every proposal, decision, and response"
         description="Append-only log across demo, study, and API sessions. Participants appear only as pseudonymous codes."
         actions={
-          <ButtonLink href={downloadUrl("/events", { ...query(), format: "csv" })} variant="secondary" icon={<Download className="size-4" aria-hidden />}>
+          <DownloadButton path="/events" params={{ ...query(), format: "csv" }} filename="agentpause-events.csv">
             Export CSV
-          </ButtonLink>
+          </DownloadButton>
         }
       />
       <div className="mt-4 flex flex-wrap items-end gap-3" role="group" aria-label="Filters">

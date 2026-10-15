@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Save } from "lucide-react";
+import { Save } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 import { TokenPrompt } from "@/components/research/token-gate";
@@ -8,7 +8,8 @@ import { Container, PageHeader } from "@/components/layout/page";
 import { CheckboxChips, Field, Select, TextInput } from "@/components/ui/form";
 import { Callout, ErrorState } from "@/components/ui/feedback";
 import { Badge, Button, ButtonLink, Card, CardBody, CardHeader, Spinner } from "@/components/ui/primitives";
-import { api, downloadUrl } from "@/lib/api";
+import { DownloadButton } from "@/components/ui/download";
+import { api } from "@/lib/api";
 import { policyLabel } from "@/lib/format";
 import type { ExplanationMode, Instrument, PolicyInfo, ScenarioSummary, StudyConfig } from "@/lib/types";
 
@@ -152,15 +153,15 @@ export function StudyAdmin() {
           <Card>
             <CardHeader title="Data" />
             <CardBody className="flex flex-wrap gap-2">
-              <ButtonLink href={downloadUrl("/study/export", { format: "csv" })} variant="secondary" icon={<Download className="size-4" aria-hidden />}>
+              <DownloadButton path="/study/export" params={{ format: "csv" }} filename="agentpause-questionnaires.csv">
                 Questionnaires CSV
-              </ButtonLink>
-              <ButtonLink href={downloadUrl("/study/export", { format: "json" })} variant="secondary" icon={<Download className="size-4" aria-hidden />}>
+              </DownloadButton>
+              <DownloadButton path="/study/export" params={{ format: "json" }} filename="agentpause-questionnaires.json">
                 Questionnaires JSON
-              </ButtonLink>
-              <ButtonLink href={downloadUrl("/events", { mode: "study", format: "csv" })} variant="secondary" icon={<Download className="size-4" aria-hidden />}>
+              </DownloadButton>
+              <DownloadButton path="/events" params={{ mode: "study", format: "csv" }} filename="agentpause-study-events.csv">
                 Study events CSV
-              </ButtonLink>
+              </DownloadButton>
               <ButtonLink href="/dashboard?source=sessions" variant="ghost">
                 Study sessions on the dashboard
               </ButtonLink>

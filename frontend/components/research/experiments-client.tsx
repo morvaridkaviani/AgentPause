@@ -133,7 +133,7 @@ export function ExperimentsClient() {
               <li key={e.id} className="rounded-xl border border-line bg-surface px-4 py-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <Link href={`/experiments/${e.id}`} className="font-medium text-ink hover:text-accent-strong hover:underline">
+                    <Link href={`/experiments/view?id=${e.id}`} className="font-medium text-ink hover:text-accent-strong hover:underline">
                       {e.name}
                     </Link>
                     <p className="text-xs text-ink-3">

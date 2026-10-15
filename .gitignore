@@ -18,6 +18,8 @@ htmlcov/
 node_modules/
 .next/
 out/
+# Python bundle for the in-browser demo (built by scripts/static_demo/build_bundle.py)
+frontend/public/py/
 *.tsbuildinfo
 next-env.d.ts
 coverage/

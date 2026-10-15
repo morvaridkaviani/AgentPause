@@ -18,3 +18,5 @@ First public research release. All results are simulated; the toolkit has **not 
 - Web app (Next.js): landing page, interactive demo, decision lab, policy comparison, preferences, research dashboard, experiment runner, event log, study mode, and research/limitations page.
 - TypeScript SDK (`@agentpause/sdk`).
 - Docker images, docker compose, GitHub Actions CI, and documentation.
+- Online demo on GitHub Pages. The real API runs in the browser through Pyodide (WebAssembly), so no server is needed.
+- Simpler web interface: plain-language demo with a Simple/Detailed view, a shorter menu, and simpler preferences.

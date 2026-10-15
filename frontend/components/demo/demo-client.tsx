@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { ChevronRight, Pause, Play, RotateCcw, Shuffle, StepForward, Undo2, X } from "lucide-react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
@@ -165,9 +166,9 @@ export function DemoClient() {
               {policy === "user_customized" ? (
                 <p className="text-xs text-ink-2">
                   Your preferences: <span className="text-ink">{describePreferences(preferences).join(" · ")}</span>.{" "}
-                  <a href="/preferences" className="font-medium text-accent-strong underline">
+                  <Link href="/preferences" className="font-medium text-accent-strong underline">
                     Change
-                  </a>
+                  </Link>
                 </p>
               ) : null}
               {!APPROACHES.some((a) => a.policy === policy) ? (

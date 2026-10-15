@@ -152,3 +152,41 @@ def test_experiment_scripts_run_and_are_deterministic(tmp_path: Path) -> None:
         assert (out / "hypotheses.json").exists()
         hashes.append(__import__("json").loads((out / "summary.json").read_text())["result_hash"])
     assert hashes[0] == hashes[1]
+
+
+def test_browser_demo_bridge_serves_the_real_api() -> None:
+    """scripts/static_demo/agentpause_web.py is what the GitHub Pages demo runs in Pyodide."""
+    import asyncio
+    import importlib.util
+    import json
+
+    import anyio.to_thread
+
+    original = anyio.to_thread.run_sync
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "agentpause_web", ROOT / "scripts" / "static_demo" / "agentpause_web.py"
+        )
+        assert spec and spec.loader
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+
+        def call(method: str, path: str, query: str = "", body: dict | None = None) -> tuple[int, object]:
+            raw = json.loads(asyncio.run(module.handle(method, path, query, json.dumps(body) if body else None)))
+            content = json.loads(raw["body"]) if raw["contentType"].startswith("application/json") else raw["body"]
+            return raw["status"], content
+
+        status, health = call("GET", "/api/v1/health")
+        assert status == 200 and health["environment"] == "browser-demo"
+        status, session = call(
+            "POST", "/api/v1/session", body={"mode": "demo", "scenario_id": "email", "policy": "adaptive", "seed": 3}
+        )
+        assert status == 201
+        status, stepped = call("POST", f"/api/v1/session/{session['id']}/step", body={"until": "intervention"})
+        assert status == 200 and stepped["session"]["status"] in ("awaiting_human", "completed")
+        status, csv_text = call("GET", "/api/v1/events", "format=csv")
+        assert status == 200 and str(csv_text).startswith("id,")
+        status, _ = call("GET", "/api/v1/session/nope")
+        assert status == 404
+    finally:
+        anyio.to_thread.run_sync = original

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 import threading
 import time
 import traceback
@@ -81,7 +82,8 @@ class ExperimentService:
         )
         self.db.add(row)
         self.db.commit()
-        if wait:
+        # WebAssembly builds (the in-browser demo) cannot start threads, so they run inline.
+        if wait or sys.platform == "emscripten":
             execute(row.id, self.sessions)
             self.db.refresh(row)
         else:

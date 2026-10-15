@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Logo } from "./logo";
-import { REPO_URL } from "@/lib/site";
+import { API_DOCS_URL, REPO_URL } from "@/lib/site";
 
 export function Container({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={clsx("mx-auto w-full max-w-7xl px-4 sm:px-6", className)}>{children}</div>;
@@ -38,7 +38,7 @@ export function SiteFooter() {
           <Link href="/about" className="hover:text-ink">
             Research &amp; limitations
           </Link>
-          <a href="/docs" className="hover:text-ink">
+          <a href={API_DOCS_URL} className="hover:text-ink">
             API docs
           </a>
           {repo ? (

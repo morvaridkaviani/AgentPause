@@ -19,6 +19,9 @@ import type {
   StudyConfig,
 } from "./types";
 
+import { engineRequest } from "./browser-api";
+import { STATIC_DEMO } from "./site";
+
 const BASE = "/api/v1";
 
 export class ApiError extends Error {
@@ -62,7 +65,28 @@ function token(): string | null {
   }
 }
 
+/** The static online demo answers requests from the in-browser engine instead of a server. */
+async function engineFetch<T>(method: string, path: string, body?: unknown): Promise<T> {
+  const full = `${BASE}${path}`;
+  const cut = full.indexOf("?");
+  const pathname = cut < 0 ? full : full.slice(0, cut);
+  const search = cut < 0 ? "" : full.slice(cut + 1);
+  const response = await engineRequest(method, pathname, search, body === undefined ? null : JSON.stringify(body));
+  if (response.status >= 400) {
+    let detail: unknown = response.body;
+    try {
+      detail = (JSON.parse(response.body) as { detail?: unknown }).detail ?? detail;
+    } catch {
+      /* non-JSON error body */
+    }
+    throw new ApiError(response.status, detail);
+  }
+  if (response.status === 204 || !response.body) return undefined as T;
+  return (response.contentType.includes("json") ? JSON.parse(response.body) : response.body) as T;
+}
+
 export async function request<T>(method: string, path: string, body?: unknown, init?: RequestInit): Promise<T> {
+  if (STATIC_DEMO) return engineFetch<T>(method, path, body);
   const headers: Record<string, string> = { Accept: "application/json" };
   if (body !== undefined) headers["Content-Type"] = "application/json";
   const t = token();
@@ -182,4 +206,18 @@ export const api = {
 /** URL for a file download (CSV/JSON export). The browser follows it directly. */
 export function downloadUrl(path: string, params: Record<string, string | number | boolean | undefined> = {}): string {
   return `${BASE}${path}${query(params)}`;
+}
+
+/** Save an export as a file. Used by the static demo, where there is no server URL to follow. */
+export async function downloadFile(path: string, params: Record<string, string | number | boolean | undefined>, filename: string): Promise<void> {
+  const response = await engineRequest("GET", `${BASE}${path}`, query(params).replace(/^\?/, ""), null);
+  if (response.status >= 400) throw new ApiError(response.status, response.body);
+  const url = URL.createObjectURL(new Blob([response.body], { type: response.contentType }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
 }
